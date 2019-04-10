@@ -1,0 +1,3 @@
+openssl req -x509 -out <host_name>.crt -keyout <host_name>.key /
+    -newkey rsa:2048 -nodes -sha256 -subj "/CN=<host_name>.<domain>.com" /
+    -extensions EXT -config c:\insightsgw\insightsgw.cnf
