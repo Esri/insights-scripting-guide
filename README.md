@@ -30,7 +30,7 @@ In the Beta Release, there are limitations on the size of data that can be expor
 
 ### Required packages to export data from the console to the data pane
 To export data from the Insights console to the Insights data pane, the following Python and R packages are used:
-* The Python Kernel uses ```pandas``` and ```NumPy```.
+* The Python Kernel uses ```pandas```, ```GeoPandas```and ```NumPy```.
 * The R Kernel uses ```jsonlite```, ```data.table```, and ```itertools```.
 
 Insights will install these packages if they are not available in the respective kernels. 
@@ -139,7 +139,7 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 3) Create an Insights Python environment using the command ``` conda create -n my_insights_env python=3.6 ```.
 4) Activate the insights Python environment using the command ``` conda activate my_insights_env ```.
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway=2.1.0```.
-6) Install pandas and NumPy packages along with any other packages you require using the command ``` conda install -c anaconda numpy pandas ```.
+6) Install pandas and NumPy packages along with any other packages you require using the command ``` conda install -c anaconda numpy pandas geopandas```.
 7) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
 8) Install essential R packages using the command ``` conda install -c r r-essentials ```.
 9) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
