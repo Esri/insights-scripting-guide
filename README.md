@@ -30,7 +30,7 @@ In the Beta Release, there are limitations on the size of data that can be expor
 
 ### Required packages to export data from the console to the data pane
 To export data from the Insights console to the Insights data pane, the following Python and R packages are used:
-* The Python Kernel uses ```pandas```, ```GeoPandas```and ```NumPy```.
+* The Python Kernel uses ```pandas```, ```GeoPandas```, and ```NumPy```.
 * The R Kernel uses ```jsonlite```, ```data.table```, and ```itertools```.
 
 Insights will install these packages if they are not available in the respective kernels. 
