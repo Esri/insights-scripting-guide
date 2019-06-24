@@ -84,20 +84,6 @@ Example:
    * Flush DNS using by running ```ipconfig /flushdns``` from the command prompt.
 10) Add new _Inbound_ and _Outbound_ rules for port 9999 using Windows Defender Firewall with Advanced Security. 
 
-> If you are experiencing issues connecting to the console after creating a self-signed certificate, check the browser to make sure an exception does not need to be added for the site created in the certificate. In the example above, the site is ``` https://insights.esri.com ```. Navigate to ``` https://insights.esri.com ``` in the browser. If an exception is required for the self-signed certificate, a warning page will be shown:
-
-> <img src="/Graphics/cert_excep.png" />
-
-> Click Advanced
-
-> <img src="/Graphics/cert_excep_add.png" />
-
-> Click Add Exception...
-
-> <img src="/Graphics/cert_excep_conf.png" />
-
-> Click Confirm Security Exception
-
 ### Create a gateway
 
 _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda section below (not both)._
@@ -169,6 +155,19 @@ jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999
 &nbsp;&nbsp;&nbsp;&nbsp;You should see JSON text on the web page showing the api version information. For example, 
 ``` {"version": "5.7.4"} ```.
 
+> If you are experiencing issues connecting to the console after creating a self-signed certificate, check the browser to make sure an exception does not need to be added for the site created in the certificate. In the example above, the site is ``` https://insights.esri.com ```. Navigate to ``` https://insights.esri.com ``` in the browser. If an exception is required for the self-signed certificate, a warning page will be shown:
+
+> <img src="/Graphics/cert_excep.png" />
+
+> Click Advanced
+
+> <img src="/Graphics/cert_excep_add.png" />
+
+> Click Add Exception...
+
+> <img src="/Graphics/cert_excep_conf.png" />
+
+> Click Confirm Security Exception
 
 ## macOS instructions
 
@@ -216,20 +215,6 @@ Example:
    * Click File > Import Items
    * Choose ```.crt``` file created using ```openssl```
    * Flush the DNS using ```sudo killall -HUP mDNSResponder``` from terminal
-
-> If you are experiencing issues connecting to the console after creating a self-signed certificate, check the browser to make sure an exception does not need to be added for the site created in the certificate. In the example above, the site is ``` https://insights.esri.com ```. Navigate to ``` https://insights.esri.com ``` in the browser. If an exception is required for the self-signed certificate, a warning page will be shown:
-
-> <img src="/Graphics/cert_excep.png" />
-
-> Click Advanced
-
-> <img src="/Graphics/cert_excep_add.png" />
-
-> Click Add Exception...
-
-> <img src="/Graphics/cert_excep_conf.png" />
-
-> Click Confirm Security Exception
 
 ### Create a gateway
 
@@ -298,6 +283,20 @@ jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999
 
 14) You should see JSON text on the web page showing the api version information. For example, 
 ``` {"version": "5.7.4"} ```
+
+> If you are experiencing issues connecting to the console after creating a self-signed certificate, check the browser to make sure an exception does not need to be added for the site created in the certificate. In the example above, the site is ``` https://insights.esri.com ```. Navigate to ``` https://insights.esri.com ``` in the browser. If an exception is required for the self-signed certificate, a warning page will be shown:
+
+> <img src="/Graphics/cert_excep.png" />
+
+> Click Advanced
+
+> <img src="/Graphics/cert_excep_add.png" />
+
+> Click Add Exception...
+
+> <img src="/Graphics/cert_excep_conf.png" />
+
+> Click Confirm Security Exception
 
 ## Use the console in Insights
 
