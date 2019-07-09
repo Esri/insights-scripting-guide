@@ -42,7 +42,7 @@ def createFlatCSV():
                                "ExporterLat": exporterLat,
                                "ExporterFromLng": exporterLng})
 
-    df.to_csv("./Horsemeat Link Table.csv", sep=',',index=False)
+    df.to_csv("Horsemeat Link Table.csv", sep=',',index=False)
     return df
 
 
