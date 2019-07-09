@@ -34,18 +34,18 @@ exporterLng = []
 geoDict = {}
 
 def createFlatCSV():
-    df = pandas.DataFrame(data={"Country": country,  
-                                "Amount": recieved, 
-                                "Lat": lat, 
+    df = pandas.DataFrame(data={"Country": country,
+                                "Amount": recieved,
+                                "Lat": lat,
                                 "Lng": lng,
                                 "Exporter": exporter,
                                "ExporterLat": exporterLat,
                                "ExporterFromLng": exporterLng})
-    
+
     df.to_csv("./Horsemeat Link Table.csv", sep=',',index=False)
-	return df
-    
-    
+    return df
+
+
 with open('Countries.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     row_num = 0
@@ -77,6 +77,6 @@ with open('Horsemeat Simple.csv') as csv_file:
                 j = j + 1
         row_num += 1
     df = createFlatCSV()
-    
+
 print(f'Processed {row_num} lines.')
-print df
+print(df)
