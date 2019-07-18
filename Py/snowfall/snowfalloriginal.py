@@ -1,3 +1,6 @@
+## To see how it works, each section below should be run sequentially.  
+## The first section needs to be run 3 times updating the year variable to 2019, 2018, and 2017.
+
 import datetime as dt
 import pandas as pd
 import os
