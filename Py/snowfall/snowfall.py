@@ -57,3 +57,6 @@ final_snow_df
 
 # Bring snowfall data into Insights
 %insights_return(final_snow_df)
+
+
+# Once in Insights you can convert the latitude and longitude values to geometry values (that are map ready) using enable location. 
