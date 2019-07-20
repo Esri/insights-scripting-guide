@@ -52,6 +52,9 @@ final_columns = ["Station_Name", "Snowfall", "Date"]
 # Create final snowfall dataframe with new columns of interest
 final_snow_df = new_snow_df[final_columns].copy()
 
+# Drop NaNs from snowfall dataframe 
+final_snow_df.dropna(inplace=True)
+
 # View final snowfall dataframe 
 final_snow_df
 
