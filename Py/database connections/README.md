@@ -45,7 +45,7 @@ conn = psycopg2.connect(conn_string)
 # create pandas dataframe from table data
 df = pd.read_sql('select * from table_name', con=conn)
 df
-
+```
 
 **Terradata using SQLAlchemy**
 
