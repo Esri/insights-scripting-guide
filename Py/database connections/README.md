@@ -23,7 +23,7 @@ df
 ```
 
 
-**PostGres using psycopg2**
+**PostgreSQL using psycopg2**
 
 ```
 # make sure psycopg2 is installed
