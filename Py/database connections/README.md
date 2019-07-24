@@ -5,7 +5,7 @@
 
 ```
 # make sure pyodbc package is installed
-# import pyodbc driver 
+# import pyodbc
 # make sure python and access versions are the same 
 # both should be 32 bit or 64 bit
 import pyodbc
@@ -27,7 +27,7 @@ df
 
 ```
 # make sure psycopg2 is installed
-# import psycopg2 driver
+# import psycopg2
 import psycopg2
 # import pandas to create dataframe
 import pandas as pd
@@ -52,6 +52,7 @@ df
  ```
 # make sure proper Teradata driver is installed
 # make sure SQLAlchemy is installed
+# import sqlalchemy create engine
 from sqlalchemy import create_engine
 # import pandas to create dataframe
 import pandas as pd
