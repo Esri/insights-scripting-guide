@@ -70,8 +70,3 @@ query_result = engine.execute(query)
 df = pd.read_sql(query, engine)
 df 
  ```
-
-
-
-
- ```
