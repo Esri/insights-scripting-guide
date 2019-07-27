@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Read horsemeat csv into a dataframe
-df = pd.read_csv("Horsemeat Simple.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/Esri/insights-scripting-guide/master/Py/horsemeat/HorsemeatSimple.csv")
 
 # Create dataframe of exporter country with lat and lon
 geo = df.loc[:, ["Country", "Lat", "Lon"]].rename(columns={"Lat": "Exporter_Lat",
