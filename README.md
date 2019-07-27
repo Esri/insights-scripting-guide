@@ -2,34 +2,34 @@
 
 Welcome to the Insights scripting guide.
 
-This repo contains information to get started with scripting in an Insights workbook.  The Beta Release enables the execution of Python and R code using a bring-your-own scripting environment.  Among many topics, we outline how to deploy a Jupyter Kernel Gateway, how to connect to a Jupyter Kernel Gateway, and tips and tricks for using the Insights console with other Insights features.  In addition, the repo serves as a place to find and share useful Python and R scripts and creates a community around those who prefer to write code to advance data science and knowledge sharing.
+This repo contains information on getting started with scripting in Insights. The Beta Release enables the execution of Python and R code using a bring-your-own scripting environment. Among many topics, we outline how to deploy a Jupyter Kernel Gateway, how to connect to a Jupyter Kernel Gateway, and tips and tricks for using the Insights scripting environment with other Insights features. In addition, the repo serves as a place to find and share useful Python and R scripts and creates a community around those who prefer to write code to advance data science and knowledge sharing.
 
-We welcome any contributions for improving this guide. If you find a bug or would like to report a problem in the Beta release of the Insights Console, please log an issue in this repo.
+We welcome any contributions for improving this guide. If you find a bug or would like to report a problem in the Beta release of the Insights scripting environment, please log an issue in this repo.
 
 ## Overview
 
-* Learn how to configure a Jupyter Kernel Gateway environment (this is a requirement for using the Insights console).
+* Learn how to configure a Jupyter Kernel Gateway (this is a requirement for using the Insights scripting environment).
 * Pick a [Windows](#windows-instructions) or [macOS](#macos-instructions) machine, such as a desktop or laptop, to host your Jupyter Kernel Gateway.
 * Generate Transport Layer Security (TLS) or Secure Sockets Layer (SSL) certificates.
 * Follow the guide for installing and deploying a Jupyter Kernel Gateway.
-* Learn tips about keyboard shortcuts and important console tools.
+* Learn tips about keyboard shortcuts and important scripting options.
 * Search for Python and R code.
 * Contribute Python and R code.
 * Read Insights use cases and product documentation.
 * Try Insights in Enterprise.
-* Use the Insights console in Enterprise.  
+* Use the Insights scripting environment in Enterprise.  
 
 
 ### Client data limitations
-The following limitations exist for the Insights console. These limitations are temporary during the Beta release and will be removed once the Insights console is out of Beta.
-In the Beta Release, there are limitations on the size of data that can be exported from the Insights console to the Insights data pane. These limitations do not exist when bringing data from the Insights data pane into the Insights console. These limitations are temporary during the Beta Release and will be removed once the Insights Console is out of Beta.
-* Exporting data from the Insights Console to the Insights data pane.
+The following limitations exist for the Insights scripting environment. These limitations are temporary during the Beta release and will be removed once the Insights scripting environment is out of Beta.
+In the Beta Release, there are limitations on the size of data that can be exported from the Insights scripting environment to the Insights data pane. These limitations do not exist when bringing data from the Insights data pane into the Insights scripting environment. These limitations are temporary during the Beta Release and will be removed once the Insights scripting environment is out of Beta.
+* Exporting data from the Insights scripting environment to the Insights data pane.
   * Current limit of ~ 8 MB for data frame size.
   * ~ 27000 rows X 10 columns of mixed data types.
 
 
-### Required packages to export data from the console to the data pane
-To export data from the Insights console to the Insights data pane, the following Python and R packages are used:
+### Required packages to export data from the scripting environment to the data pane
+To export data from the Insights scripting environment to the Insights data pane, the following Python and R packages are used:
 * The Python Kernel uses ```pandas```, ```GeoPandas```, and ```NumPy```.
 * The R Kernel uses ```jsonlite```, ```data.table```, and ```itertools```.
 
@@ -38,7 +38,7 @@ Insights will install these packages if they are not available in the respective
 
 ## Install and deploy a Jupyter Kernel Gateway
 
-The Insights scripting console uses Jupyter Kernel Gateways. This section includes guidance on how to configure a Jupyter Kernel Gateway environment. It requires using either Docker or Anaconda and enabling TLS or SSL for security. TLS and SSL permit Insights to access your gateway over HTTPS and WSS.
+The Insights scripting environment uses a Jupyter Kernel Gateway. This section includes guidance on how to configure a Jupyter Kernel Gateway. It requires using either Docker or Anaconda and enabling TLS or SSL for security. TLS and SSL permit Insights to access your gateway over HTTPS and WSS.
 
 ## Windows instructions
 
