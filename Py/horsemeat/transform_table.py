@@ -39,8 +39,8 @@ def createFlatCSV():
                                 "Lat": lat,
                                 "Lng": lng,
                                 "Exporter": exporter,
-                               "ExporterLat": exporterLat,
-                               "ExporterFromLng": exporterLng})
+                                "ExporterLat": exporterLat,
+                                "ExporterFromLng": exporterLng})
 
     df.to_csv("HorsemeatLinkTable.csv", sep=',',index=False)
     return df
@@ -52,7 +52,6 @@ with open('Countries.csv') as csv_file:
         if(row_num != 0):
             geoDict.update({row[0]:{'lat':row[1], 'lng':row[2]}})
         row_num += 1
-
 
 with open('HorsemeatSimple.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
