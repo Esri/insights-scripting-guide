@@ -22,7 +22,7 @@ limitations under the License.​
 
 
 import csv
-import pandas as pd
+import pandas
 
 country = []
 exporter = []
