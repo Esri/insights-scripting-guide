@@ -21,7 +21,7 @@ limitations under the License.​
 """
 
 
-# import csv
+import csv
 import pandas as pd
 
 country = []
@@ -42,12 +42,8 @@ def createFlatCSV():
                                "ExporterLat": exporterLat,
                                "ExporterFromLng": exporterLng})
 
-    df.to_csv("Horsemeat Link Table.csv", sep=',',index=False)
+    df.to_csv("HorsemeatLinkTable.csv", sep=',',index=False)
     return df
-
-
-countries = pd.read_csv("Countries.csv")
-
 
 with open('Countries.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -58,7 +54,7 @@ with open('Countries.csv') as csv_file:
         row_num += 1
 
 
-with open('Horsemeat Simple.csv') as csv_file:
+with open('HorsemeatSimple.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     row_num = 0
     header = []
