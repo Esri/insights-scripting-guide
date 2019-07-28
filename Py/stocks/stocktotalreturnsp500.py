@@ -1,7 +1,7 @@
 ! pip install pandas_datareader
 ! pip install plotly
 ! pip install xlrd
-! pip install yfinance - -upgrade - -no - cache - dir
+! pip install yfinance --upgrade --no-cache-dir
 import datetime
 import pandas as pd
 import numpy as np
@@ -18,7 +18,6 @@ init_notebook_mode(connected=True)
 def get_stock(tickers, start_date, end_date):
     def data(ticker):
         return pdr.get_data_yahoo(ticker, start=start_date, end=end_date)
-
     data_set = map(data, tickers)
     return pd.concat(data_set, keys=tickers, names=["Ticker", "Date"])
 

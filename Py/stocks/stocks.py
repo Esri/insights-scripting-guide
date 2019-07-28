@@ -48,7 +48,7 @@ def simple_daily_perc_change(stock_hist, adj_close_column, date_column):
 
 
 # Open AAPL stock historical data
-aapl_hist = pd.read_csv("AAPL.csv")
+aapl_hist = pd.read_csv("https://raw.githubusercontent.com/Esri/insights-scripting-guide/master/Py/stocks/AAPL.csv")
 # Set dataframe index
 aapl_hist.set_index("trade_date")
 # Set price column
