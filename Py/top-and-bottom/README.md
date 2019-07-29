@@ -37,4 +37,4 @@ Suppose you need to put together a few crude lists showing the top and bottom 25
 	``` clean_df.nsmallest(25, 'POPULATION') ```
 
 
- > PRO TIP:  To convert the data frame into an Insights dataset, press  ``` Ctrl/control + Alt/option + B ``` in a new cell.  When the Insights magic command appears type the name of the data frame inside the parentheses and press ```Shift + Enter```.
+ > To convert the data frame into an Insights dataset, press  ``` Ctrl/control + Alt/option + B ``` in a new cell. When the Insights magic command appears type the name of the data frame inside the parentheses and press ```Shift + Enter```.
