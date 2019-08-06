@@ -26,7 +26,7 @@ In the Beta Release, there are limitations on the size of data that can be expor
 * Exporting data from the Insights scripting environment to the Insights data pane.
   * Current limit of ~ 8 MB for data frame size.
   * ~ 27000 rows X 10 columns of mixed data types.
-
+Note: These limitations only apply for R kernel environment.
 
 ### Required packages to export data from the scripting environment to the data pane
 To export data from the Insights scripting environment to the Insights data pane, the following Python and R packages are used:
