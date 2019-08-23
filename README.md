@@ -43,7 +43,7 @@ The Insights scripting environment uses a Jupyter Kernel Gateway. This section i
 ## Windows instructions
 
 ### Create a TLS or SSL certificate
-
+> The instructions below will create a self-signed certificate. If you are able to create a trusted certificate in your enterprise, you can skip these steps and use the trusted enterprise certificate.
 1) Clone the insights-scripting-guide repo to your local machine.
 2) Use [Anaconda](https://www.anaconda.com/distribution/#windows) to install ``` openssl ``` for creating a self-signed certificate.
 3) Open the Anaconda Command Prompt window. 
@@ -173,7 +173,7 @@ jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999
 ## macOS instructions
 
 ### Create a TLS or SSL cert
-
+> The instructions below will create a self-signed certificate. If you are able to create a trusted certificate in your enterprise, you can skip these steps and use the trusted enterprise certificate.
 1) Clone the insights-scripting-guide repo to your local machine.
 2) Create a directory called __insightsgw__ on your local machine. For example, ``` insightspc:insightsgw insightsuser$  ```.
 3) Copy and paste the __insightsgw.cnf__ file from this repo's __Cert__ directory into the __insightsgw__ directory and edit each placeholder value (__host_name__ and __domain__)  within the file.
