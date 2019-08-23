@@ -53,7 +53,7 @@ RUN conda install --quiet --yes \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
-# install the kernel gateway and arcgis Python API
+# install the kernel gateway, arcgis Python API, and geopandas
 RUN pip install --quiet jupyter_kernel_gateway arcgis geopandas
 
 # environment settings for kernel gateway
