@@ -125,9 +125,11 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway=2.1.0 ```.
 6) Install pandas and NumPy packages using the command ``` conda install -c anaconda numpy pandas```.
 7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
-8) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
-9) Install essential R packages using the command ``` conda install -c r r-essentials ```.
-10) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
+8) Install msgpack package using the command ``` conda install -c conda-forge msgpack ```.
+9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
+10) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
+11) Install essential R packages using the command ``` conda install -c r r-essentials ```.
+12) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
 
 > Consider what directory to use when launching the Jupyter Kernel Gateway. If you have a ``` C:\insightsgw\data ``` directory which contains ``` .csv ``` files, launching the Jupyter Kernel Gateway from this folder will enable easy access to those files within scripts by allowing the use of relative paths for file and folder access.
 
@@ -256,8 +258,8 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway ```.
 6) Install pandas and NumPy packages using the command ``` conda install -c anaconda numpy pandas ```.
 7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
-8) Install Msgpack package using the command ``` conda install -c conda-forge msgpack ```.
-9) Install Shapely package using the command ``` conda install -c conda-forge shapely ```.
+8) Install msgpack package using the command ``` conda install -c conda-forge msgpack ```.
+9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
 10) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
 11) Install essential R packages using the command ``` conda install -c r r-essentials ```.
 12) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
@@ -340,7 +342,7 @@ The ArcGIS Insights console uses keyboard shortcuts and magic commands so that r
 * ``` Shift/shift + Enter/return ``` Execute the code in the current cell.
 * ``` Shift/shift + Up Arrow or Down Arrow ``` Access the history of executed cells.
 
-# Required libraries for Python
+### Required libraries for Python
 * msgpack
 * geopandas
 * pandas
@@ -348,7 +350,7 @@ The ArcGIS Insights console uses keyboard shortcuts and magic commands so that r
 * shapely
 * requests
 
-# Required libraries for R
+### Required libraries for R
 * r-essentials
 * itertools
 * jsonlite
