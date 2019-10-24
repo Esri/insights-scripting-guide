@@ -123,11 +123,11 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 3) Create an ArcGIS Insights Python environment using the command ``` conda create -n my_insights_env python=3.6 ```.
 4) Activate the ArcGIS Insights Python environment using the command ``` conda activate my_insights_env ```.
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway=2.1.0 ```.
-6) Install pandas and NumPy packages using the command ``` conda install -c anaconda numpy pandas```.
-7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
+6) Install pandas and numpy packages using the command ``` conda install -c anaconda numpy pandas```.
+7) Install geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
 8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
 9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
-10) Install shapely package using the command ``` conda install -c conda-forge requests ```.
+10) Install requests package using the command ``` conda install -c conda-forge requests ```.
 11) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
 12) Install essential R packages using the command ``` conda install -c r r-essentials ```.
 13) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
@@ -257,11 +257,11 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 3) Create an ArcGIS Insights Python environment using the command ``` conda create -n my_insights_env python=3.6 ```.
 4) Activate the ArcGIS Insights Python environment using the command ``` source activate my_insights_env ```.
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway ```.
-6) Install pandas and NumPy packages using the command ``` conda install -c anaconda numpy pandas ```.
-7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
+6) Install pandas and numpy packages using the command ``` conda install -c anaconda numpy pandas ```.
+7) Install geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
 8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
 9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
-10) Install shapely package using the command ``` conda install -c conda-forge requests ```.
+10) Install requests package using the command ``` conda install -c conda-forge requests ```.
 11) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
 12) Install essential R packages using the command ``` conda install -c r r-essentials ```.
 13) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
