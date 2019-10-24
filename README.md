@@ -127,9 +127,10 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
 8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
 9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
-10) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
-11) Install essential R packages using the command ``` conda install -c r r-essentials ```.
-12) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
+10) Install shapely package using the command ``` conda install -c conda-forge requests ```.
+11) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
+12) Install essential R packages using the command ``` conda install -c r r-essentials ```.
+13) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
 
 > Consider what directory to use when launching the Jupyter Kernel Gateway. If you have a ``` C:\insightsgw\data ``` directory which contains ``` .csv ``` files, launching the Jupyter Kernel Gateway from this folder will enable easy access to those files within scripts by allowing the use of relative paths for file and folder access.
 
@@ -260,9 +261,10 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
 8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
 9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
-10) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
-11) Install essential R packages using the command ``` conda install -c r r-essentials ```.
-12) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
+10) Install shapely package using the command ``` conda install -c conda-forge requests ```.
+11) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
+12) Install essential R packages using the command ``` conda install -c r r-essentials ```.
+13) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
 
 > Consider what directory to use when launching the Jupyter Kernel Gateway. If you have a ``` /Users/insightsuser/Documents/insightsgw/data ``` directory which contains ``` .csv ``` files, launching the Jupyter Kernel Gateway from this directory will enable easy access to those files within scripts by allowing the use of relative paths for file and directory access.
 
