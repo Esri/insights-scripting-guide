@@ -125,7 +125,7 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway=2.1.0 ```.
 6) Install pandas and NumPy packages using the command ``` conda install -c anaconda numpy pandas```.
 7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
-8) Install msgpack package using the command ``` conda install -c conda-forge msgpack ```.
+8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
 9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
 10) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
 11) Install essential R packages using the command ``` conda install -c r r-essentials ```.
@@ -258,7 +258,7 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway ```.
 6) Install pandas and NumPy packages using the command ``` conda install -c anaconda numpy pandas ```.
 7) Install Geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
-8) Install msgpack package using the command ``` conda install -c conda-forge msgpack ```.
+8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
 9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
 10) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
 11) Install essential R packages using the command ``` conda install -c r r-essentials ```.
