@@ -30,7 +30,7 @@ In the Beta Release, there are limitations on the size of data that can be expor
 
 ### Required packages to export data from the scripting environment to the data pane
 To export data from the ArcGIS Insights scripting environment to the ArcGIS Insights data pane, the following Python and R packages are used:
-* The Python Kernel uses ```pandas```, ```GeoPandas```, ```NumPy```, and ```matplotlib```.
+* The Python Kernel uses ```pandas```, ```GeoPandas```, ```NumPy```, ```matplotlib```, ```msgpack```, ```shapely``` and ```requests```.
 * The R Kernel uses ```jsonlite```, ```data.table```, and ```itertools```.
 
 ## Install and deploy a Jupyter Kernel Gateway
@@ -341,20 +341,6 @@ The ArcGIS Insights console uses keyboard shortcuts and magic commands so that r
 * ``` Ctrl/control + Spacebar ``` Enable IntelliSense.
 * ``` Shift/shift + Enter/return ``` Execute the code in the current cell.
 * ``` Shift/shift + Up Arrow or Down Arrow ``` Access the history of executed cells.
-
-### Required libraries for Python
-* msgpack
-* geopandas
-* pandas
-* numpy
-* shapely
-* requests
-
-### Required libraries for R
-* r-essentials
-* itertools
-* jsonlite
-* data.table
 
 
 # What is ArcGIS Insights?
