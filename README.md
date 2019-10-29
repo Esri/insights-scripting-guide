@@ -1,10 +1,10 @@
-# ArcGIS Insights scripting guide - _Beta release_
+# ArcGIS Insights scripting guide
 
 Welcome to the ArcGIS Insights scripting guide.
 
-This repo contains information on getting started with scripting in ArcGIS Insights. The Beta Release enables the execution of Python and R code using a bring-your-own scripting environment. Among many topics, we outline how to deploy a Jupyter Kernel Gateway, how to connect to a Jupyter Kernel Gateway, and tips and tricks for using the ArcGIS Insights scripting environment with other ArcGIS Insights features. In addition, the repo serves as a place to find and share useful Python and R scripts and creates a community around those who prefer to write code to advance data science and knowledge sharing.
+This repo contains information on getting started with scripting in ArcGIS Insights. This feature enables the execution of Python and R code using a bring-your-own scripting environment. Among many topics, we outline how to deploy a Jupyter Kernel Gateway, how to connect to a Jupyter Kernel Gateway, and tips and tricks for using the ArcGIS Insights scripting environment with other ArcGIS Insights features. In addition, the repo serves as a place to find and share useful Python and R scripts and creates a community around those who prefer to write code to advance data science and knowledge sharing.
 
-We welcome any contributions for improving this guide. If you find a bug or would like to report a problem in the Beta release of the ArcGIS Insights scripting environment, please log an issue in this repo.
+We welcome any contributions for improving this guide. If you find a bug or would like to report a problem in the ArcGIS Insights scripting environment, please log an issue in this repo.
 
 ## Overview
 
@@ -19,14 +19,6 @@ We welcome any contributions for improving this guide. If you find a bug or woul
 * Try ArcGIS Insights in Enterprise.
 * Use the ArcGIS Insights scripting environment in Enterprise.  
 
-
-### Client data limitations
-The following limitations exist for the ArcGIS Insights scripting environment. These limitations are temporary during the Beta release and will be removed once the ArcGIS Insights scripting environment is out of Beta.
-In the Beta Release, there are limitations on the size of data that can be exported from the ArcGIS Insights scripting environment to the ArcGIS Insights data pane. These limitations do not exist when bringing data from the ArcGIS Insights data pane into the ArcGIS Insights scripting environment. These limitations are temporary during the Beta Release and will be removed once the ArcGIS Insights scripting environment is out of Beta.
-* Exporting data from the ArcGIS Insights scripting environment to the ArcGIS Insights data pane.
-  * Current limit of ~ 8 MB for data frame size.
-  * ~ 27000 rows X 10 columns of mixed data types.
-> Note: These limitations only apply for R kernel environment.
 
 ### Required packages to export data from the scripting environment to the data pane
 To export data from the ArcGIS Insights scripting environment to the ArcGIS Insights data pane, the following Python and R packages are used:
@@ -355,7 +347,7 @@ Part of the Esri Geospatial Cloud, ArcGIS Insights is web-based data analytics m
 
 ## Why Get Involved?
 
-Send feedback to us concerning the Beta Release of the ArcGIS Insights scripting console. Found an issue or have questions? Feel free to post questions or comments and report bugs to the issues section of this repo.
+Send feedback to us concerning the ArcGIS Insights scripting console. Found an issue or have questions? Feel free to post questions or comments and report bugs to the issues section of this repo.
 
 ## Start using ArcGIS Insights with a Free Trial
 
