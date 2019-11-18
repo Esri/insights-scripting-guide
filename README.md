@@ -112,7 +112,7 @@ _When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda sec
 
 1) Install [Anaconda](https://www.anaconda.com/distribution/).
 2) Open the Anaconda Command Prompt window.
-3) Create an ArcGIS Insights Python environment using the command ``` conda create -n my_insights_env python=3.6 ```.
+3) Create an ArcGIS Insights Python environment using the command ``` conda create -n my_insights_env python=3.7 ```.
 4) Activate the ArcGIS Insights Python environment using the command ``` conda activate my_insights_env ```.
 5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway=2.1.0 ```.
 6) Install pandas and numpy packages using the command ``` conda install -c anaconda numpy pandas```.
