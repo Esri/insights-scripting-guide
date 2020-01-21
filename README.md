@@ -95,6 +95,12 @@ This requires advanced networking skills to ensure Insights can communicate with
 
 ## Troubleshooting 
 
+_Insights is running in the web browser and when connecting to a Kernel Gateway an error says "Not able to add this connection. Try with a different URL or web socket or check if your gateway is running."_
+
+If you've followed the guide (and ran the selfsigned.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
+
+
+
 _My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?_
 
 A fundemental way to toubleshoot this problem is first confirm that the computer(s) running Insights can talk to the Kernel Gateway computer. Try getting the IP address of the machine running your Kernel Gateway and then use the ```ping``` command to see if the ping message was received. 
