@@ -1,18 +1,29 @@
 # Insights Scripting Guide
 
-This guide offers a reference for creating custom features in ArcGIS Insights using Python and R.  It covers topics about working with the script editor and how to deploy Jupyter's Kernel Gateway.  You can also find python and R code samples in the repo.
+This guide offers a reference for creating custom features in ArcGIS Insights using Python and R.  From deploying a Kernel Gateway to using the script editor to visualize data, use this resource as the definitive guide for Insights scripting topics.
+ 
 
-_Note: Scripting is available in Insights Desktop and the ArcGIS Enterprise version of Insights begining at 3.4 and all 2020.x releases.  Scripting is not available within the ArcGIS Online version of Insights._
+## Prerequisites
 
-## Setup a Kernel Gateway scripting server
+* ArcGIS Insights (version 2020.x)
+* Anaconda (version 3.7)
 
-Insights supports connections to Jupyter's Kernel Gateway.  To learn how to setup a Kernel Gateway choose one of the sections below. 
+_Note: Scripting is not available in ArcGIS Online versions of Insights._ 
 
-* How to deploy a Kernel Gateway using Anaconda
-* How to deploy a Kernel Gateway using Docker
+## Dependencies (Python and R libraries)
+
+* See needed Python and R dependencies in this file 
+
+
+## Kernel Gateway Setup 
+
+Insights supports connections to Jupyter's Kernel Gateway version 2.1.0.  Jupyter's Kernel Gateway is an open source web server which is distributed through ```conda-forge``` and other channels. To learn how to setup a Kernel Gateway with the needed dependencies choose one of the following deployment sections. 
+
+* How to deploy a Kernel Gateway with dependencies using Anaconda
+* How to deploy a Kernel Gateway with dependencies using Docker
    
 
-### How to deploy a Kernel Gateway using Anaconda
+### How to deploy a Kernel Gateway with dependencies using Anaconda
 
 It's reccomended to read the section on Planning a Scipting Environment before following these steps.
 
@@ -22,20 +33,20 @@ It's reccomended to read the section on Planning a Scipting Environment before f
 4) Open the Anaconda command promt and CD into the ```gateway``` folder
 5) Run the following commands
 
-``` conda create env -f insights-base.yml ```
-``` conda activate insights-base ```
-``` python selfsign.py```
+    conda create env -f insights-base.yml
+    conda activate insights-base
+    python selfsign.py
 
 6) Start the Kernel Gateway by running this command:
 
 ``` jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key```
 
-To stop Kernel Gateway run this command:
+To stop a Kernel Gateway:
 
 Press _Control-C_ in the window running the Kernel Gateway. Alternatively, close the window.
 
 
-### How to deploy a Kernel Gateway using Docker
+### How to deploy a Kernel Gateway with dependencies using Docker
 
 ...Coming soon...
 
@@ -84,9 +95,9 @@ This requires advanced networking skills to ensure Insights can communicate with
 
 ## Troubleshooting 
 
-_I am having trouble making a Kernel Gateway connection in Insights?_
+_My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?_
 
-Try getting the IP address of the machine running your Kernel Gateway.  
+A fundemental way to toubleshoot this problem is first confirm that the computer(s) running Insights can talk to the Kernel Gateway computer. Try getting the IP address of the machine running your Kernel Gateway and then use the ```ping``` command to see if the ping message was received. 
 
 Using windows, run ```ipconfig``` and reference the Iv4 address.  Using mac, run ```ipconfig getifaddr en0``` and note the address.  Next from the machine(s) running Insights (Insights Desktop or Insights Service machines plus the machine running Insights in the web browser) run ```ping your-kernel-gateway-ip-address```.  If you get a reply, that means Insights should be able to make a connection.
 
