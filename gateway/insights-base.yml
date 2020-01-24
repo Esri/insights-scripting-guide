@@ -1,0 +1,17 @@
+name: insights-base
+channels:
+  - defaults
+  - esri
+dependencies:
+  - python=3.7
+  - jupyter_kernel_gateway=2.1.0
+  - pandas
+  - numpy
+  - shapely
+  - requests
+  - msgpack-python
+  - matplotlib
+  - geopandas
+  - arcgis
+  - r-itertools
+  - r-essentials

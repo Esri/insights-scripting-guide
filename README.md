@@ -12,30 +12,32 @@ _Note: Scripting is not available in ArcGIS Online versions of Insights._
 
 ## Dependencies (Python and R libraries)
 
-* See needed Python and R dependencies in this file 
+* See needed Python and R dependencies in this [file](gateway/insights-base.yml) 
 
 
 ## Kernel Gateway Setup 
 
 Insights supports connections to Jupyter's Kernel Gateway version 2.1.0.  Jupyter's Kernel Gateway is an open source web server which is distributed through ```conda-forge``` and other channels. To learn how to setup a Kernel Gateway with the needed dependencies choose one of the following deployment sections. 
 
-* How to deploy a Kernel Gateway with dependencies using Anaconda
-* How to deploy a Kernel Gateway with dependencies using Docker
+* [How to deploy a Kernel Gateway with dependencies using Anaconda](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Anaconda)
+* [How to deploy a Kernel Gateway with dependencies using Docker](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Docker)
    
 
 ### How to deploy a Kernel Gateway with dependencies using Anaconda
 
 It's reccomended to read the section on Planning a Scipting Environment before following these steps.
 
-1) Install Anaconda 3.7 (or greater)
+1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
 3) Copy ```selfsign.py``` and ```insights-base.yml``` into your ```gateway``` folder
-4) Open the Anaconda command promt and CD into the ```gateway``` folder
+4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
 5) Run the following commands
 
-    conda create env -f insights-base.yml
-    conda activate insights-base
-    python selfsign.py
+```conda env create -f insights-base.yml```
+
+```conda activate insights-base```
+
+```python selfsign.py```
 
 6) Start the Kernel Gateway by running this command:
 
@@ -97,7 +99,7 @@ This requires advanced networking skills to ensure Insights can communicate with
 
 _Insights is running in the web browser and when connecting to a Kernel Gateway an error says "Not able to add this connection. Try with a different URL or web socket or check if your gateway is running."_
 
-If you've followed the guide (and ran the selfsigned.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
+If you've followed the guide (and ran the selfsign.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
 
 
 
