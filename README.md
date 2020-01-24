@@ -42,8 +42,11 @@ It's reccomended to read the section on Planning a Scipting Environment before f
 6) Start the Kernel Gateway by running this command:
 
     ```
-    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*'
+     --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*'
+      --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
     ```
+_Note: Make sure the start command is single line (not 3 lines)_
 
 To stop a Kernel Gateway:
 
