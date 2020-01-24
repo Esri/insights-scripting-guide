@@ -8,9 +8,9 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 * ArcGIS Insights (version 2020.x)
 * Anaconda (version 3.7)
 
-_Note: Scripting is not available in ArcGIS Online versions of Insights._ 
+Scripting is not available in ArcGIS Online versions of Insights._ 
 
-## Dependencies (Python and R libraries)
+## Python and R Dependencies
 
 * See needed Python and R dependencies in this [file](gateway/insights-base.yml) 
 
@@ -33,11 +33,11 @@ It's reccomended to read the section on Planning a Scipting Environment before f
 4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
 5) Run the following commands
 
-```conda env create -f insights-base.yml```
-
-```conda activate insights-base```
-
-```python selfsign.py```
+    ```
+    conda env create -f insights-base.yml
+    conda activate insights-base
+    python selfsign.py
+    ```
 
 6) Start the Kernel Gateway by running this command:
 
