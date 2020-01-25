@@ -8,7 +8,7 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 * ArcGIS Insights (version 2020.x)
 * Anaconda (version 3.7)
 
-_The ArcGIS Online version of Insights does not include scripting._ 
+_Note: Insights in ArcGIS Online does not support scripting and Kernel Gateway connections.  Please use Insights Desktop until this becomes a supported feature._ 
 
 ## Python and R Dependencies
 
@@ -22,7 +22,7 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 * [How to deploy a Kernel Gateway with dependencies using Anaconda](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Anaconda)
 * [How to deploy a Kernel Gateway with dependencies using Docker](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Docker)
 
-Insights Desktop readers should check out the topic on [How to deploy a Kernel Gateway for Insights Desktop](How-to-deploy-a-Kernel-Gateway-for-Insights-Desktop). 
+Insights Desktop readers should review [How to deploy a Kernel Gateway for Insights Desktop](How-to-deploy-a-Kernel-Gateway-for-Insights-Desktop). 
 
 ### How to deploy a Kernel Gateway with dependencies using Anaconda
 
