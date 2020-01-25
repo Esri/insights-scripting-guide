@@ -1,6 +1,6 @@
 # Insights Scripting Guide
 
-This guide offers a reference for creating custom features in ArcGIS Insights using Python and R.  From deploying a Kernel Gateway to using the script editor to visualize data, use this resource as the definitive guide for Insights scripting topics.
+This guide offers a reference for creating custom features in ArcGIS Insights using Python and R.  It is the definitive guide for Insights scripting topics and a resource for implementing Jupyter's Kernel Gateway.
  
 
 ## Prerequisites
@@ -8,7 +8,7 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 * ArcGIS Insights (version 2020.x)
 * Anaconda (version 3.7)
 
-Scripting is not available in ArcGIS Online versions of Insights._ 
+_The ArcGIS Online version of Insights does not include scripting._ 
 
 ## Python and R Dependencies
 
@@ -17,21 +17,22 @@ Scripting is not available in ArcGIS Online versions of Insights._
 
 ## Kernel Gateway Setup 
 
-Insights supports connections to Jupyter's Kernel Gateway version 2.1.0.  Jupyter's Kernel Gateway is an open source web server which is distributed through ```conda-forge``` and other channels. To learn how to setup a Kernel Gateway with the needed dependencies choose one of the following deployment sections. 
+Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which is an open source web server distributed through ```conda-forge``` and other channels.  To learn how to setup a Kernel Gateway with the required dependencies choose one of the following deployment sections.
 
 * [How to deploy a Kernel Gateway with dependencies using Anaconda](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Anaconda)
 * [How to deploy a Kernel Gateway with dependencies using Docker](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Docker)
-   
+
+Insights Desktop readers should check out the topic on [How to deploy a Kernel Gateway for Insights Desktop](How-to-deploy-a-Kernel-Gateway-for-Insights-Desktop). 
 
 ### How to deploy a Kernel Gateway with dependencies using Anaconda
 
-It's reccomended to read the section on Planning a Scipting Environment before following these steps.
+It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting-Environment) before following these steps.
 
 1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
-3) Copy ```selfsign.py``` and ```insights-base.yml``` into your ```gateway``` folder
+3) Copy ```selfsign.py``` and ```insights-base.yml``` into ```gateway``` folder
 4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
-5) Run the following commands
+5) Run below commands
 
     ```
     conda env create -f insights-base.yml
@@ -39,16 +40,13 @@ It's reccomended to read the section on Planning a Scipting Environment before f
     python selfsign.py
     ```
 
-6) Start the Kernel Gateway by running this command:
+6) Run below command to start the Kernel Gateway:
 
     ```
-    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*'
-     --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*'
-      --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
     ```
-_Note: Make sure the start command is single line (not 3 lines)_
 
-To stop a Kernel Gateway:
+#### Stop a Kernel Gateway:
 
 Press _Control-C_ in the window running the Kernel Gateway. Alternatively, close the window.
 
@@ -56,6 +54,26 @@ Press _Control-C_ in the window running the Kernel Gateway. Alternatively, close
 ### How to deploy a Kernel Gateway with dependencies using Docker
 
 ...Coming soon...
+
+### How to deploy a Kernel Gateway for Insights Desktop
+
+Insights Desktop has fewer setup steps.  This is because Insights Desktop does not support _self signed SSL certificates_.  Therefore follow these steps, if using Insights Desktop.
+
+1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
+2) Create a folder named ```gateway```
+3) Copy ```insights-base.yml``` into ```gateway``` folder
+4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
+5) Run below commands
+
+    ```
+    conda env create -f insights-base.yml
+    conda activate insights-base
+    ```
+6) Run below command to start the Kernel Gateway:
+
+    ```
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
+    ```
 
 
 ## Planning a Scipting Environment
