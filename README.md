@@ -107,6 +107,14 @@ Either install Jupyter's Kernel Gateway on the same machine as Insights Desktop 
 
 Install Jupyter's Kernel Gateway on machine that is accessible by ArcGIS Enterprise and the machine which will access Insights via the web browser. Choose a URL reference similar to items 6 and 8 when creating a connection within Insights to the Kernel Gateway.
 
+#### Dedicated Kernel Gateway System Design
+
+![Dedicated Kernel Gateway](diagrams/jkg-dedicated-diagram.png)
+
+#### Co-Located Kernel Gateway System Design
+
+![Dedicated Kernel Gateway](diagrams/jkg-colocated-diagram.png)
+
 ### _Insights for ArcGIS Enterprise running the Cloud:_ 
 
 In a case where you have ArcGIS Enterprise and Insights running in the Cloud and would like to enable scripting, this requires advanced networking skills to ensure Insights can communicate with the Kernel Gateway.  The machine(s) hosting Insights Service in the cloud need to be able to access the Kernel Gateway and so does the machine running Insights in the web browser. To achieve this landscape, typically a Kernel Gateway will be installed in the cloud.  While it may be possible to locate the Kernel Gateway on an office network, a static IP would need to be assigned to the Kernel Gateway and firewall settings should be updated to protect against abuse.
