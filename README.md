@@ -78,9 +78,9 @@ Insights Desktop has fewer setup steps.  This is because Insights Desktop does n
 
 ## Planning a Scipting Environment
 
-A variety of options exist for hosting a Kernel Gateway.  A Kernel Gateway can be installed on the same machine as ArcGIS Insights or on a different machine.  
+A Kernel Gateway can be installed on the same machine as ArcGIS Insights or on a different machine.  
 
-Typically, installing the Kernel Gateway on the same machine as Insights is the easiest approach (especially if you using Insights Desktop).  In the case of an ArcGIS Enterprise installation of Insights, more consideration is needed.  For the enterpise case, the machine running Insights in the web browser and the machine(s) running Insights Service all need to communicate with the Kernel Gateway.
+Typically, installing the Kernel Gateway on the same machine as Insights is the easiest approach (especially if you using Insights Desktop).  In the case of an ArcGIS Enterprise installation of Insights, some computer network knowledge is needed.  For the enterpise case, the machine running Insights in the web browser and the machine(s) running Insights Service all need to communicate with the Kernel Gateway.
 
 Kernel Gateway URL address referencing is also important.   Consider these urls pointing to a fake machine named pickle, on a fake domain named esri.com  :
 
@@ -113,7 +113,11 @@ Install Jupyter's Kernel Gateway on machine that is accessible by ArcGIS Enterpr
 
 #### Co-Located Kernel Gateway System Design
 
-![Dedicated Kernel Gateway](diagrams/jkg-colocated-diagram.png)
+![Co-Located Kernel Gateway](diagrams/jkg-colocated-diagram.png)
+
+#### Client Kernel Gateway System Design
+
+![Client Kernel Gateway](diagrams/jkg-client-diagram.png)
 
 ### _Insights for ArcGIS Enterprise running the Cloud:_ 
 
