@@ -103,6 +103,9 @@ For further reading choose a subsection most relavant and the section on trouble
 
 Either install Jupyter's Kernel Gateway on the same machine as Insights Desktop (easyiest) or put the Kernel Gateway on a different machine and ensure both machines can communicate with each other via the office, home or cloud network.  Choose a URL reference similar to items 1, 3, 5, and 7 when creating a connection within Insights to the Kernel Gateway.
 
+![Insights Desktop and Kernel Gateway](diagrams/jkg-desktop-diagram.png)
+
+
 ### _Insights for ArcGIS Enterprise:_  
 
 Install Jupyter's Kernel Gateway on machine that is accessible by ArcGIS Enterprise and the machine which will access Insights via the web browser. Choose a URL reference similar to items 6 and 8 when creating a connection within Insights to the Kernel Gateway.
@@ -119,16 +122,12 @@ Install Jupyter's Kernel Gateway on machine that is accessible by ArcGIS Enterpr
 
 ![Client Kernel Gateway](diagrams/jkg-client-diagram.png)
 
-### _Insights for ArcGIS Enterprise running the Cloud:_ 
-
-In a case where you have ArcGIS Enterprise and Insights running in the Cloud and would like to enable scripting, this requires advanced networking skills to ensure Insights can communicate with the Kernel Gateway.  The machine(s) hosting Insights Service in the cloud need to be able to access the Kernel Gateway and so does the machine running Insights in the web browser. To achieve this landscape, typically a Kernel Gateway will be installed in the cloud.  While it may be possible to locate the Kernel Gateway on an office network, a static IP would need to be assigned to the Kernel Gateway and firewall settings should be updated to protect against abuse.
-
-Whether a in the cloud or on-premise, for security reasons it is important to ensure that all IP address trying to reach the Kernel Gateway are blocked except those from Insights Service machines and clients running Insights in the web browser.  Amazon offers blocking and IP  filtering via it's Security Groups feature.  In Azure, you can filter network traffic  using a Network Security Group.  If planning a Kernel Gateway, on-premise with ArcGIS Enterprise hosted in the cloud, consult the person or team responsible for managing you're computer ifrastructure and network.
-
 
 ### _Hybrid: On-premises Insights and Kernel Gateway running the Cloud:_
 
 This requires advanced networking skills to ensure Insights can communicate with the Kernel Gateway.  The machine(s) hosting Insights Service on-premsis and the machine running Insights in the web browser need to be able to access the Kernel Gateway. When running a Kernel Gateway in the cloud, for security reasons it is important to ensure that all IP address trying to reach the Kernel Gateway are blocked except those from Insights Service machines and clients running Insights in the web browser.  Amazon offers blocking and IP  filtering via it's Security Groups feature.  In Azure, you can filter network traffic  using a Network Security Group.  
+
+![Cloud Kernel Gateway](diagrams/jkg-cloud-diagram.png)
 
 ## Troubleshooting 
 
