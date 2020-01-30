@@ -1,6 +1,6 @@
 ## Kernel Gateway Deployment Planning 
 
-Are you Instested in Insights Scripting and want more about deploying a Jupyter Kernel Gateway?  These diagrams are ment to help organizations plan a Jupyter Kernel Gateway deployment. 
+Want to learn more about deploying a Jupyter Kernel Gateway?  These conceptual diagrams were designed to help organizations visualize different Jupyter Kernel Gateway configurations. 
 
 ### Insights Desktop
 
@@ -28,4 +28,4 @@ Are you Instested in Insights Scripting and want more about deploying a Jupyter 
 ![Cloud Kernel Gateway](diagrams/jkg-cloud-diagram.png)
 
 
-*These diagrams are ment to be a conceptual reference. Other configurations and designs exisit.
+*Other configurations and designs may exisit.
