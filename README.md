@@ -39,21 +39,19 @@ It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting
 
 6) Start the Kernel Gateway:
 
-* Run this command if using Insights in ArcGIS Enterprise
+* Run this command if using __Insights in ArcGIS Enterprise__
 
     ```
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
     ```
 
-* Run this command if using Insights desktop
+* Run this command if using __Insights Desktop__
 
     ```
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
-#### Stop a Kernel Gateway:
-
-Press _Control-C_ in the window running the Kernel Gateway. Alternatively, close the window.
+7) Stop the Kernel Gateway when done by pressing _Control-C_ in the running window or alternatively, close the window
 
 
 
