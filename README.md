@@ -60,16 +60,23 @@ It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting
 ...Coming soon...
 
 
-## Create a Kernel Gateway connection in Insights
+## Create a connection
 
-To make a connection you will need to supply Insights a URL that points to your Kernel Gateway.  It's reccomended to read [Kernel Gateway URL Patterns](#Kernel-Gateway-URL-Patterns) for address referencing tips. 
+To create a Jupyter Kernel Gateway connection complete the Kernel Gateway Connection form. 
 
 
 1) Open Insights
-2) Click the _Scripting_ icon
+2) Click the _Scripting_ icon 
 3) Complete Kernel Gateway Connection form
 
 
+__Scripting Icon__
+![Scripting icon](diagrams/page_nav_scripting_icon.png)
+
+__Kernel Gateway Connection__
+![Kernel Gateway Connection](diagrams/kernel_gateway_connection_dialog.png)
+
+_Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choosing the correct URL schema, it's reccomended to read [Kernel Gateway URL Patterns](#Kernel-Gateway-URL-Patterns).  
 
 
 ## Kernel Gateway URL Patterns
