@@ -21,7 +21,7 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 
 Insights Desktop readers should review [How to deploy a Kernel Gateway for Insights Desktop](How-to-deploy-a-Kernel-Gateway-for-Insights-Desktop). 
 
-### How to deploy a Kernel Gateway with dependencies using Anaconda
+### How to deploy a Kernel Gateway with Anaconda
 
 It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting-Environment) before following these steps.
 
@@ -37,15 +37,15 @@ It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting
     python selfsign.py
     ```
 
-6) Run one of the commands below to start the Kernel Gateway:
+6) Start the Kernel Gateway:
 
-__Start command for ArcGIS Insights in ArcGIS Enterprise__
+* Run this command if using Insights in ArcGIS Enterprise
 
     ```
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
     ```
 
-__Start command for ArcGIS Insights desktop__
+* Run this command if using Insights desktop
 
     ```
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
