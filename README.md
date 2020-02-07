@@ -94,60 +94,82 @@ _Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choos
 | http://pickle.esri.com:9999| no      |    yes |
 | https://pickle.esri.com:9999| yes      |    no <sup>1</sup> |
 
-1 if using a real domain certificate or a certificate authority certificate, Insights Desktop will be able to connect   
+<sup>1</sup> Insights Desktop can make connections to HTTPS Kernel Gateway endpoints, if the Kernel Gateway uses a domain or a certificate authority certificate.
+
+
+
+
+## Learn about Insights scripting features within the console
+
+![Console Pre Kernel Connection](diagrams/pre_kernel.png)
+
+
+![Console Post Kernel Connection](diagrams/post_kernel.png)
+
+
+### Learn about shortcuts and magic commands
+
+The console uses keyboard shortcuts and magic commands so routine tasks can be performed quickly and efficiently.
+* Use the ```%insights_return(<R data frame or Pandas DataFrame>)``` magic command to make R or Python data frames available to Insights.  Following the command, your data frame data will appear in the data pane,  just like other layers and datasets do.
+
+&nbsp;&nbsp;&nbsp;&nbsp;__The %insights_return magic command must be run on a single line in a single cell in the ArcGIS Insights Console__
+
+* ``` Ctrl/control + Alt/option + B ``` Add ```%insights_return``` magic command to cell.
+* ``` Ctrl/control + / ``` Comment line.
+* ``` Ctrl/control + Spacebar ``` Enable code suggestions (IntelliSense).
+* ``` Shift/shift + Enter/return ``` Execute the code in the current cell.
+
 
 ## Planning a Scipting Environment
 
-A Kernel Gateway can be installed on the same machine as ArcGIS Insights or on a different machine.  
+There are various configurations to choose from when planning a Jupyter Kernel Gateway deployment.  It should be noted that some configurations make have a tactical advantage over others.  Additionally, each configuration will offer different end-user experiences and varying degress of effort in regards to deployment and maintence.
 
-Typically, installing the Kernel Gateway on the same machine as Insights is the easiest approach (especially if you using Insights Desktop).  In the case of an ArcGIS Enterprise installation of Insights, some computer network knowledge is needed.  For the enterpise case, the machine running Insights in the web browser and the machine(s) running Insights Service all need to communicate with the Kernel Gateway.
+These conceptual diagrams were designed to help organizations visualize different Jupyter Kernel Gateway configurations. 
 
-Kernel Gateway URL address referencing is also important.   Consider these urls pointing to a fake machine named pickle, on a fake domain named esri.com  :
-
-1) http://localhost:9999
-2) https://localhost:9999
-3) http://pickle:9999
-4) https://pickle:9999
-5) http://12.120.95.153:9999 
-6) https://12.120.95.153:9999
-7) http://pickle.esri.com:9999
-8) https://pickle.esri.com:9999
-
-Of these addresses only 6 and 8 are ideal for ensuring communication between ArcGIS Insights and a Kernel Gateway. Over a network, these two address stand the best chance because item 6 (the IP address) uniquely represents the machine with the Kernel Gateway and item 8 (the FQDN address) includes both the machine name and domain name which together form a unique address, which Insights uses to resolve the Kernel Gateway on the network.
-
-_Pro Tip_ : Insights Desktop is a little more flexible.  If you install the Kernel Gateway on the same machine as Insights Desktop, it's possible to create a connection using item 1, 3, 5, and 7.
-
-For further reading choose a subsection most relavant and the section on troubleshooting, if you are having problems connecting to your Kernel Gateway environment:
-
-### _Insights Desktop with Kernel Gateway:_
-
-Either install Jupyter's Kernel Gateway on the same machine as Insights Desktop (easyiest) or put the Kernel Gateway on a different machine and ensure both machines can communicate with each other via the office, home or cloud network.  Choose a URL reference similar to items 1, 3, 5, and 7 when creating a connection within Insights to the Kernel Gateway.
+### Insights Desktop and Kernel Gateway
 
 ![Insights Desktop and Kernel Gateway](diagrams/jkg-desktop-diagram.png)
 
 
-### _Insights for ArcGIS Enterprise:_  
+* This configuration entails low newtworking and firewall considerations
+* Data files may live on personal computer or file server
 
-Install Jupyter's Kernel Gateway on machine that is accessible by ArcGIS Enterprise and the machine which will access Insights via the web browser. Choose a URL reference similar to items 6 and 8 when creating a connection within Insights to the Kernel Gateway.
 
-#### Dedicated Kernel Gateway System Design
+### Insights in ArcGIS Enterprise and Kernel Gateway  
+
+#### Dedicated
 
 ![Dedicated Kernel Gateway](diagrams/jkg-dedicated-diagram.png)
 
-#### Co-Located Kernel Gateway System Design
+* This configuration entails moderate newtworking and firewall considerations and skills
+* Data files should live on file server or Kernel Gateway machine
+
+
+#### Co-Located
 
 ![Co-Located Kernel Gateway](diagrams/jkg-colocated-diagram.png)
+
+* This configuration entails moderate newtworking and firewall considerations and skills
+* Data files should live on file server or Kernel Gateway machine
+
 
 #### Client Kernel Gateway System Design
 
 ![Client Kernel Gateway](diagrams/jkg-client-diagram.png)
 
+* This configuration entails moderate newtworking and firewall considerations and skills
+* Data files may live on personal computer or file server
 
-### _Hybrid: On-premises Insights and Kernel Gateway running the Cloud:_
 
-This requires advanced networking skills to ensure Insights can communicate with the Kernel Gateway.  The machine(s) hosting Insights Service on-premsis and the machine running Insights in the web browser need to be able to access the Kernel Gateway. When running a Kernel Gateway in the cloud, for security reasons it is important to ensure that all IP address trying to reach the Kernel Gateway are blocked except those from Insights Service machines and clients running Insights in the web browser.  Amazon offers blocking and IP  filtering via it's Security Groups feature.  In Azure, you can filter network traffic  using a Network Security Group.  
+
+### Cloud Kernel Gateway 
+
+* Data files may need to be accessible from the cloud
+* This configuration entails advanced newtworking and firewall skills and considerations
 
 ![Cloud Kernel Gateway](diagrams/jkg-cloud-diagram.png)
+
+
 
 ## Troubleshooting 
 
@@ -159,11 +181,42 @@ If you've followed the guide (and ran the selfsign.py file), you have created a 
 
 _My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?_
 
-A fundemental way to toubleshoot this problem is first confirm that the computer(s) running Insights can talk to the Kernel Gateway computer. Try getting the IP address of the machine running your Kernel Gateway and then use the ```ping``` command to see if the ping message was received. 
+A fundemental way to toubleshoot this problem is confirm that all needed computers can talk to each other.   If you are running Insights in Enterprise this means each ArcGIS Server machine, plus your Kernel Gateway and personal computer must all be able to communicate with each other.   Insights Desktop entails less troubleshooting.  For Insights Desktop only the Kernel Gateway and your personal computer need to talk to each other.
 
-Using windows, run ```ipconfig``` and reference the Iv4 address.  Using mac, run ```ipconfig getifaddr en0``` and note the address.  Next from the machine(s) running Insights (Insights Desktop or Insights Service machines plus the machine running Insights in the web browser) run ```ping your-kernel-gateway-ip-address```.  If you get a reply, that means Insights should be able to make a connection.
+ Try getting the IP address of:
+ 
+ * Your personal computer machine
+ * Your kernel gateway machine
+ * Your ArcGIS Server machine(s) 
+ 
+ and then from each machine run the ```ping``` command to see if ping messages are received. 
+
+Tip:  On windows, run ```ipconfig``` and reference the Iv4 address to get the IP address.  On mac, run ```ipconfig getifaddr en0``` and note the address.  
 
 
 ## Contribute
 
 If you wish to contribute or have questions, please create an issue or pull request.
+
+
+## Start using ArcGIS Insights with a Free Trial
+
+Sign-up to [start a free trial](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/trial?adumkts=product&adupro=Insights_for_ArcGIS&aduc=pr&adum=blogs&utm_Source=pr&aduca=arcgis_insights_existing_customers_promotions&aduat=blog&aduco=exploring-the-atlantic-ocean-in-insights&adupt=lead_gen&sf_id=70139000001eKGfAAM).
+
+
+## Licensing
+Copyright 2020 Esri
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/quickstart-map-js/master/license.txt) file.
