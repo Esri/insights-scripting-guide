@@ -71,10 +71,10 @@ To create a Jupyter Kernel Gateway connection complete the Kernel Gateway Connec
 
 
 __Scripting Icon__
-![Scripting icon](diagrams/scripting_icon.png)
+![](diagrams/scripting_icon.png)
 
 __Kernel Gateway Connection__
-![Kernel Gateway Connection](diagrams/connection.png)
+![](diagrams/connection.png)
 
 _Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choosing the correct URL schema, it's reccomended to read [Kernel Gateway URL Patterns](#Kernel-Gateway-URL-Patterns).  
 
