@@ -7,12 +7,9 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 
 * ArcGIS Insights (version 2020.x)
 * Anaconda (version 3.7)
-
-_Note: Insights in ArcGIS Online does not support scripting and Kernel Gateway connections.  Please use Insights Desktop until this becomes a supported feature._ 
-
-## Python and R Dependencies
-
 * See needed Python and R [dependencies](gateway/insights-base.yml) 
+
+_Note: Insights in ArcGIS Online does not support scripting.  Please use Insights Desktop until this becomes a supported feature._ 
 
 
 ## Kernel Gateway Setup 
@@ -40,10 +37,18 @@ It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting
     python selfsign.py
     ```
 
-6) Run below command to start the Kernel Gateway:
+6) Run one of the commands below to start the Kernel Gateway:
+
+__Start command for ArcGIS Insights in ArcGIS Enterprise__
 
     ```
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
+    ```
+
+__Start command for ArcGIS Insights desktop__
+
+    ```
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
 #### Stop a Kernel Gateway:
@@ -51,34 +56,32 @@ It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting
 Press _Control-C_ in the window running the Kernel Gateway. Alternatively, close the window.
 
 
+
 ### How to deploy a Kernel Gateway with dependencies using Docker
 
 ...Coming soon...
 
-### How to deploy a Kernel Gateway for Insights Desktop
 
-Insights Desktop has fewer setup steps.  This is because Insights Desktop does not support _self signed SSL certificates_.  Therefore follow these steps, if using Insights Desktop.
+## Create a Kernel Gateway connection in Insights
 
-1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
-2) Create a folder named ```gateway```
-3) Copy ```insights-base.yml``` into ```gateway``` folder
-4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
-5) Run below commands
+To make a connection you will need to supply Insights a URL that points to your Kernel Gateway.  It's reccomended to read [Kernel Gateway URL Patterns](#Kernel-Gateway-URL-Patterns) for address referencing tips. 
 
-    ```
-    conda env create -f insights-base.yml
-    conda activate insights-base
-    ```
-6) Run below command to start the Kernel Gateway:
 
-    ```
-    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
-    ```
-
-## Make a Kernel Gateway connection from Insights
+1) Open Insights
+2) Click the _Scripting_ icon
+3) Complete Kernel Gateway Connection form
 
 
 
+
+## Kernel Gateway URL Patterns
+
+
+| URL           | Insights in Enterprise | Insights Desktop  |
+| ------------- |:-------------:| -----:|
+| http://localhost:9999      | no | yes |
+| https://localhost:9999      | no      |   no* |
+| http://pickle:9999| no      |    yes |
 
 
 ## Planning a Scipting Environment
