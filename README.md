@@ -51,7 +51,7 @@ It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
-7) Stop the Kernel Gateway when done by pressing _Control-C_ in the running window or alternatively, close the window
+7) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
 
 
 
@@ -78,9 +78,15 @@ To make a connection you will need to supply Insights a URL that points to your 
 | URL           | Insights in Enterprise | Insights Desktop  |
 | ------------- |:-------------:| -----:|
 | http://localhost:9999      | no | yes |
-| https://localhost:9999      | no      |   no* |
+| https://localhost:9999      | no      |   no |
 | http://pickle:9999| no      |    yes |
+| https://pickle:9999| no      |    no |
+| http://12.120.95.153:9999 | no      |    yes |
+| https://12.120.95.153:9999| yes      |    no |
+| http://pickle.esri.com:9999| no      |    yes |
+| https://pickle.esri.com:9999| yes      |    no <sup>1</sup> |
 
+1 if using a real domain certificate or a certificate authority certificate, Insights Desktop will be able to connect   
 
 ## Planning a Scipting Environment
 
