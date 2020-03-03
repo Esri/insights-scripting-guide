@@ -22,7 +22,7 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 
 ### Deploy with Anaconda
 
-It's reccomended to read [Deployment Patterns](#Deployment-Patterns) before following these steps.
+It's recommended to read [Deployment Patterns](#Deployment-Patterns) before following these steps.
 
 1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
@@ -96,7 +96,7 @@ Urls can be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address
 
 ## General Features
 
-Python and R scripting features are distributed across the app.  Shared scripts can be accessed from the _Add_ dialog, script  modules are accessed via the data pane and the editor console has many features.  Refer to this table for an overview of scripting tool. 
+Python and R scripting features are distributed across the app.  Shared scripts can be accessed from the _Add_ dialog.  Script modules and module options are accessed via the data pane. Lastly, the console itself has many features.  Refer to this table for an overview of tools and capabilities.
 
 | Icon           | Tool Name | Description  |
 | :-------------: |:-------------:| :-----|
@@ -118,7 +118,7 @@ Python and R scripting features are distributed across the app.  Shared scripts 
 The console enables keyboard shortcuts to perform routine tasks quickly.
 
 | Shortcut           | Description |
-|:-------------:|:-------------:|
+|:-------------:|:-------------|
 | __Ctrl + B__     | Create comments for selected code. |
 | __Shift + Enter__      | Executes code in current cell. |
 | __Ctrl + Alt + B__         | Adds ```%insights_return(<data frame object>)``` magic command to cell  |
@@ -129,13 +129,13 @@ The console enables keyboard shortcuts to perform routine tasks quickly.
 The console supports the following magic command.  This magic command must be placed in it's own cell.
 
 | Magic command           | Description |
-|:-------------:|:-------------:|
+|:-------------:|:-------------|
 | ```%insights_return(<data frame object>)```     | Converts Python or R data frames into Insights datasets.  When ```%insights_return(df)```  is run it will generate an Insights dataset from the ```df``` object.  Data will be persisted in the workbook (when the workbook is saved) and will appear in the data pane after execution.  |
 
 
 ## Deployment Patterns
 
-There are various configurations to choose from when planning a Jupyter Kernel Gateway deployment.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degress of effort in regards to setup and maintenance.
+There are various configurations to choose from when planning a Jupyter Kernel Gateway with Insights.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degress of effort regarding setup and maintenance.
 
 These conceptual diagrams were designed to help organizations visualize different kinds Jupyter Kernel Gateway configurations next to different kinds of Insights deployments. 
 
