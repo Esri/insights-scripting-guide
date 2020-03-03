@@ -12,18 +12,17 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 _Note: Insights in ArcGIS Online does not support scripting.  Please use Insights Desktop until this becomes a supported feature._ 
 
 
-## Kernel Gateway Setup 
+## Setup Kernel Gateway 
 
-Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which is an open source web server distributed through ```conda-forge``` and other channels.  To learn how to setup a Kernel Gateway with the required dependencies choose one of the following deployment sections.
+Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which is an open source web server distributed through ```conda-forge``` and other repository channels.    To setup a Kernel Gateway, with the required dependencies choose one of the following deployment sections.
 
-* [How to deploy a Kernel Gateway with dependencies using Anaconda](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Anaconda)
-* [How to deploy a Kernel Gateway with dependencies using Docker](#How-to-deploy-a-Kernel-Gateway-with-dependencies-using-Docker)
+* [Deploy with Anaconda](#Deploy-with-Anaconda)
+* [Deploy with Docker](#Deploy-with-Docker)
 
-Insights Desktop readers should review [How to deploy a Kernel Gateway for Insights Desktop](How-to-deploy-a-Kernel-Gateway-for-Insights-Desktop). 
 
-### How to deploy a Kernel Gateway with Anaconda
+### Deploy with Anaconda
 
-It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting-Environment) before following these steps.
+It's reccomended to read [Deployment Patterns](#Deployment-Patterns) before following these steps.
 
 1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
@@ -55,32 +54,27 @@ It's reccomended to read [Planning a Scipting Environment](#Planning-a-Scripting
 
 
 
-### How to deploy a Kernel Gateway with dependencies using Docker
+### Deploy with Docker
 
 ...Coming soon...
 
 
 ## Create a connection
 
-To create a Jupyter Kernel Gateway connection complete the Kernel Gateway Connection form. 
+To create a connection complete the Kernel Gateway Connection form. 
 
 
 1) Open Insights
-2) Click the _Scripting_ icon 
+2) Click the _Scripting_ icon  ![Open console](diagrams/scripting-console.svg) 
 3) Complete Kernel Gateway Connection form
 
 
-![Scripting Icon](diagrams/scripting_icon.png)
+_Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what this might look like see the [URL Patterns](#URL-Patterns) table.  
 
 
+## URL Patterns
 
-![Kernel Gateway Connection](diagrams/connection.png)
-
-
-_Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choosing the correct URL schema, it's reccomended to read [Kernel Gateway URL Patterns](#Kernel-Gateway-URL-Patterns).  
-
-
-## Kernel Gateway URL Patterns
+Urls can be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any open inbound port number.  If using 443, a connection  will not require the port number. 
 
 
 | URL           | Insights in Enterprise | Insights Desktop  |
@@ -96,6 +90,7 @@ _Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choos
 
 <sup>1</sup> Insights Desktop can make connections to HTTPS Kernel Gateway endpoints, if the Kernel Gateway uses a domain or a certificate authority certificate.
 
+<sup>2</sup> If using port 443, the connection url will look like this ``` https://pickle.esri.com ```.
 
 
 
@@ -124,9 +119,9 @@ The console enables keyboard shortcuts to perform routine tasks quickly.
 
 | Shortcut           | Description |
 |:-------------:|:-------------:|
-| _Ctrl + B_     | Create comments for selected code. |
-| _Shift + Enter_      | Executes code in current cell. |
-| _Ctrl + Alt + B         | Adds ```%insights_return(<data frame object>)``` magic command to cell  |
+| __Ctrl + B__     | Create comments for selected code. |
+| __Shift + Enter__      | Executes code in current cell. |
+| __Ctrl + Alt + B__         | Adds ```%insights_return(<data frame object>)``` magic command to cell  |
 
 
 ### Magic commands
@@ -138,11 +133,11 @@ The console supports the following magic command.  This magic command must be pl
 | ```%insights_return(<data frame object>)```     | Converts Python or R data frames into Insights datasets.  When ```%insights_return(df)```  is run it will generate an Insights dataset from the ```df``` object.  Data will be persisted in the workbook (when the workbook is saved) and will appear in the data pane after execution.  |
 
 
-## Planning a Scipting Environment
+## Deployment Patterns
 
-There are various configurations to choose from when planning a Jupyter Kernel Gateway deployment.  It should be noted that some configurations make have a tactical advantage over others.  Additionally, each configuration will offer different end-user experiences and varying degress of effort in regards to deployment and maintence.
+There are various configurations to choose from when planning a Jupyter Kernel Gateway deployment.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degress of effort in regards to setup and maintenance.
 
-These conceptual diagrams were designed to help organizations visualize different Jupyter Kernel Gateway configurations. 
+These conceptual diagrams were designed to help organizations visualize different kinds Jupyter Kernel Gateway configurations next to different kinds of Insights deployments. 
 
 ### Insights Desktop and Kernel Gateway
 
@@ -189,7 +184,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 
 
-## Troubleshooting 
+## FAQs and Troubleshooting
 
 _Insights is running in the web browser and when connecting to a Kernel Gateway an error says "Not able to add this connection. Try with a different URL or web socket or check if your gateway is running."_
 
@@ -217,9 +212,9 @@ Tip:  On windows, run ```ipconfig``` and reference the Iv4 address to get the IP
 If you wish to contribute or have questions, please create an issue or pull request.
 
 
-## Start using ArcGIS Insights with a Free Trial
+## Download Insights Desktop
 
-Sign-up to [start a free trial](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/trial?adumkts=product&adupro=Insights_for_ArcGIS&aduc=pr&adum=blogs&utm_Source=pr&aduca=arcgis_insights_existing_customers_promotions&aduat=blog&aduco=exploring-the-atlantic-ocean-in-insights&adupt=lead_gen&sf_id=70139000001eKGfAAM).
+[Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download).
 
 
 ## Licensing
