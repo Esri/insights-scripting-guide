@@ -118,84 +118,24 @@ Python and R scripting features are distributed across the app.  Shared scripts 
 | ![Switch connection](diagrams/switch-connections.svg)| Switch connection      |    Enables connection changing from one Kernel Gateway to another.  |
 
 
-<table>
-  <tr>
-    <th>Icon</th>
-    <th>Tool Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><img src="images/scripting-console.svg"/></td>
-    <td>Open console</td>
-    <td>Opens the Python and R scripting console or Kernel Gateway connection dialog. If no Kernel Gateway connection exists within the page, this is when the connection dialog openes.</td>
-  </tr>
-  <tr>
-    <td><img src="images/add-model.svg"/></td>
-    <td>Create module</td>
-    <td>Creates a script from selected cells then adds a module to the data pane.</td>
-  </tr>
-  <tr>
-    <td><img src="images/create-card.svg"/></td>
-    <td>Create card</td>
-    <td>Takes the active cell and creates a card.</td>
-  </tr>
-  <tr>
-    <td><img src="images/delete-cell.svg" width="16px" height="16px"/></td>
-    <td>Delete cell</td>
-    <td>Deletes the active cell.</td>
-  </tr>
-  <tr>
-    <td><img src="images/export-save.svg"/></td>
-    <td>Export script</td>
-    <td>Enables saving of cell (or cells) to common formats like Python, R, or Jupyter Notebook files.</td>
-  </tr>
-  <tr>
-    <td><img src="images/import-file.svg"/></td>
-    <td>Import file</td>
-    <td>Enables importing of scripts into the console from common files like Python, R or Jupyter Notebook files.</td>
-  </tr>
-    <tr>
-    <td><img src="images/insert-cell.svg"/></td>
-    <td>Insert cell</td>
-    <td>Inserts a new scripting cell.</td>
-  </tr>
-      <tr>
-    <td><img src="images/restart.svg"/></td>
-    <td>Restart kernel</td>
-    <td>Restarts the execution kernel within the Kernel Gateway.  Restarting stops running scripts and clears the namespace and any data held in memory.</td>
-  </tr>
-        <tr>
-    <td><img src="images/run.svg"/></td>
-    <td>Run</td>
-    <td>Runs script in active cell.</td>
-  </tr>
-      <tr>
-    <td><img src="images/run-all.svg"/></td>
-    <td>Run all</td>
-    <td>Runs all scripts in all cells.</td>
-  </tr>
-    <tr>
-    <td><img src="images/switch-connections.svg" width="16px" height="16px"/></td>
-    <td>Switch connection</td>
-    <td>Enables connection changing from one Kernel Gateway to another.</td>
-  </tr>
+### Shortcuts
 
-</table>
+The console enables keyboard shortcuts to perform routine tasks quickly.
+
+| Shortcut           | Description |
+|:-------------:|:-------------:|
+| _Ctrl + B_     | Create comments for selected code. |
+| _Shift + Enter_      | Executes code in current cell. |
+| _Ctrl + Alt + B         | Adds ```%insights_return(<data frame object>)``` magic command to cell  |
 
 
+### Magic commands
 
+The console supports the following magic command.  This magic command must be placed in it's own cell.
 
-### Shortcuts and magic commands
-
-The console uses keyboard shortcuts and magic commands so routine tasks can be performed quickly and efficiently.
-* Use the ```%insights_return(<R data frame or Pandas DataFrame>)``` magic command to make R or Python data frames available to Insights.  Following the command, your data frame data will appear in the data pane,  just like other layers and datasets do.
-
-&nbsp;&nbsp;&nbsp;&nbsp;__The %insights_return magic command must be run on a single line in a single cell in the ArcGIS Insights Console__
-
-* ``` Ctrl/control + Alt/option + B ``` Add ```%insights_return``` magic command to cell.
-* ``` Ctrl/control + / ``` Comment line.
-* ``` Ctrl/control + Spacebar ``` Enable code suggestions (IntelliSense).
-* ``` Shift/shift + Enter/return ``` Execute the code in the current cell.
+| Magic command           | Description |
+|:-------------:|:-------------:|
+| ```%insights_return(<data frame object>)```     | Converts Python or R data frames into Insights datasets.  When ```%insights_return(df)```  is run it will generate an Insights dataset from the ```df``` object.  Data will be persisted in the workbook (when the workbook is saved) and will appear in the data pane after execution.  |
 
 
 ## Planning a Scipting Environment
