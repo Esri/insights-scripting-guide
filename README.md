@@ -9,7 +9,7 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 * Anaconda (version 3.7)
 * See needed Python and R [dependencies](gateway/insights-base.yml) 
 
-_Note: Insights in ArcGIS Online does not support scripting.  Please use Insights Desktop until this becomes a supported feature._ 
+_Note: Scripting is not supported in Insights within ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections and scripting._ 
 
 
 ## Setup Kernel Gateway 
@@ -207,12 +207,7 @@ A fundemental way to toubleshoot this problem is confirm that all needed compute
 Tip:  On windows, run ```ipconfig``` and reference the Iv4 address to get the IP address.  On mac, run ```ipconfig getifaddr en0``` and note the address.  
 
 
-## Contribute
-
-If you wish to contribute or have questions, please create an issue or pull request.
-
-
-## Download Insights Desktop
+## Get Insights Desktop
 
 [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download).
 
