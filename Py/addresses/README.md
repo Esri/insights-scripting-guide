@@ -1,6 +1,6 @@
 ## Create a Panda Data Frame with Geocode Ready Data 
 
-Creates a Panda data frame that can be imported and persisted into an Insights workbooks for further analysis.
+Creates a Panda data frame that can be imported and persisted into Insights workbooks for further analysis.
 
 __Steps__
 
