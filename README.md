@@ -210,7 +210,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ## What is ArcGIS Insights?
 
-Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Using Insights you can questions you did not know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
+Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Using Insights you can ask questions you did not know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
 
 * [Case studies and testimonials](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/overview)
 * [Product and analytical tool documentation](https://doc.arcgis.com/en/insights/)
@@ -235,7 +235,8 @@ print(soup.prettify())
 ```  
 
 
-#### Insights is running in the web browser and when connecting to a Kernel Gateway an error says "_Not able to add this connection. Try with a different URL or web socket or check if your gateway is running._"
+#### Insights is running in the web browser and when making a Kernel Gateway connection it says "_Not able to add this connection. Try with a different URL or web socket or check if your gateway is running._"
+
 
 If you've followed the guide (and ran the selfsign.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
 
