@@ -209,7 +209,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ## FAQs and Troubleshooting
 
-_How do I install additional Python libraries with the Insights console that are not in my Kernel Gateway?_
+_How do I install additional Python libraries using the console that are not in my Kernel Gateway?_
 
 You can do this by putting an explanation in front of a _pip install_ command. Like,
 
@@ -217,15 +217,14 @@ You can do this by putting an explanation in front of a _pip install_ command. L
 !pip install BeautifulSoup4
 ```
 
-If all goes well the output will show download activity.  Then once done you can then import your library like, 
+If all goes well (after running the command), download activity will apear in the output cell.  When the command finishes, you can then run import your library and run scripts like normal. 
 
-```
+```py
 from bs4 import BeautifulSoup
 soup = BeautifulSoup("<p>Hello Insights!</p>")
 print(soup.prettify())
 ```  
 
-and begin using it.
 
 _Insights is running in the web browser and when connecting to a Kernel Gateway an error says "__Not able to add this connection. Try with a different URL or web socket or check if your gateway is running.__"_
 
