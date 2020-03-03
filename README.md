@@ -62,16 +62,22 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 3) Copy ```selfsign.py``` and ```Dockerfile``` into ```gateway``` folder
 4) Run ```selfsign.py``` to create certificates in the ```gateway``` folder
 
-```python selfsign.py```
+    ```
+    python selfsign.py
+    ```
 
 5) Create a ```data``` folder within ```gateway``` and put your data files there
 6) Run this command to create the Kernel Gateway Docker image
 
-```docker build -t insights-gateway .```
+    ```
+    docker build -t insights-gateway .
+    ```
 
 7) Start the Kernel Gateway
 
-``` docker run -p 9999:9999 insights-gateway ```
+    ```
+    docker run -p 9999:9999 insights-gateway
+    ```
 
 
 
