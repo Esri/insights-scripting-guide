@@ -154,7 +154,7 @@ The console supports the following magic command.  This magic command must be pl
 
 There are various configurations to choose from when planning a Jupyter Kernel Gateway with Insights.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degrees of effort regarding setup and maintenance.
 
-These conceptual diagrams were designed to help organizations visualize different kinds Jupyter Kernel Gateway configurations next to different kinds of Insights deployments. 
+These conceptual diagrams were designed to help organizations visualize different kinds of Jupyter Kernel Gateway configurations next to different kinds of Insights deployments. 
 
 ### Insights Desktop and Kernel Gateway
 
