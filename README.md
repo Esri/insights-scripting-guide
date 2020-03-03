@@ -99,10 +99,10 @@ _Note:_  Connections must reference the Kernel Gateway root URL.  For tips on wh
 
 ## Connection examples
 
-Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any __open__ inbound port number.  If using 443, a connection  will not require the port number.  Here are some examples.  __Yes__ means connection schema is supported.  No, means that URL connection will likely fail.
+Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any available inbound port number that is not already in use.  If using 443, a connection  will not require the port number.  Here are some examples.  __Yes__ means connection schema is supported.  No, means that URL connection will likely fail (not work).
 
 
-| URL           | Insights in Enterprise | Insights Desktop  |
+| Connection URL           | Insights in Enterprise | Insights Desktop  |
 | ------------- |:-------------:|:-----:|
 | http://localhost:9999      | no | yes |
 | https://localhost:9999      | no      |   no |
