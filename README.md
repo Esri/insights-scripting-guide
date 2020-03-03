@@ -210,7 +210,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ## What is ArcGIS Insights?
 
-Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Answer questions you didn’t know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
+Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Using Insights you can questions you did not know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
 
 * [Case studies and testimonials](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/overview)
 * [Product and analytical tool documentation](https://doc.arcgis.com/en/insights/)
