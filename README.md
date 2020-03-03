@@ -104,18 +104,18 @@ _Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choos
 Python and R scripting features are distributed across the app.  Shared scripts can be accessed from the _Add_ dialog, script  modules are accessed via the data pane and the editor console has many features.  Refer to this table for an overview of scripting tool. 
 
 | Icon           | Tool Name | Description  |
-| ------------- |:-------------:| -----:|
-| ![Open console](diagrams/scripting_icon.png)      | Open console | yes |
-| ![Create module](diagrams/scripting_icon.png)     | Create module      |   no |
-| ![Create card](diagrams/scripting_icon.png)| Create card      |    yes |
-| ![Delete cell](diagrams/scripting_icon.png)| Delete cell      |    no |
-| ![Export script](diagrams/scripting_icon.png) | Export script      |    yes |
-| ![Import file](diagrams/scripting_icon.png) | Import file      |    no |
-| ![Insert cell](diagrams/scripting_icon.png) | Insert cell      |    yes |
-| ![Restart kernel](diagrams/scripting_icon.png)| Restart kernel      |    no  |
-| ![Run](diagrams/scripting_icon.png)| Restart kernel      |    Run  |
-| ![Run all](diagrams/scripting_icon.png)| Restart kernel      |    Run all  |
-| ![Switch connection](diagrams/scripting_icon.png)| Restart kernel      |    no  |
+| :-------------: |:-------------:| :-----|
+| ![Open console](diagrams/scripting-console.svg)      | Open console | Opens the Python and R scripting console or Kernel Gateway connection dialog. If no Kernel Gateway connection exists within the page, this is when the connection dialog openes. |
+| ![Create module](diagrams/add-model.svg)     | Create module      |   Creates a script from selected cells then adds a module to the data pane. |
+| ![Create card](diagrams/create-card.svg)| Create card      |    Takes the active cell and creates a card. |
+| ![Delete cell](diagrams/delete-cell.svg)| Delete cell      |    Deletes the active cell. |
+| ![Export script](diagrams/export-save.svg) | Export script      |    Enables saving of cell (or cells) to common formats like Python, R, or Jupyter Notebook files. |
+| ![Import file](diagrams/import-file.svg) | Import file      |    Enables importing of scripts into the console from common files like Python, R or Jupyter Notebook files. |
+| ![Insert cell](diagrams/insert-cell.svg) | Insert cell      |    Inserts a new scripting cell. |
+| ![Restart kernel](diagrams/restart.svg)| Restart kernel      |    Restarts the execution kernel within the Kernel Gateway.  Restarting stops running scripts and clears the namespace and any data held in memory.  |
+| ![Run](diagrams/run.svg)| Restart kernel      |    Run  | Runs script in active cell.
+| ![Run all](diagrams/run-all.svg)| Restart kernel      |    Run all  | Runs all scripts in active cell.
+| ![Switch connection](diagrams/switch-connections.svg)| Restart kernel      |    Enables connection changing from one Kernel Gateway to another.  |
 
 
 <table>
