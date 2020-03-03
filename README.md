@@ -103,6 +103,20 @@ _Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choos
 
 Python and R scripting features are distributed across the app.  Shared scripts can be accessed from the _Add_ dialog, script  modules are accessed via the data pane and the editor console has many features.  Refer to this table for an overview of scripting tool. 
 
+| Icon           | Tool Name | Description  |
+| ------------- |:-------------:| -----:|
+| ![Open console](diagrams/scripting_icon.png)      | Open console | yes |
+| ![Create module](diagrams/scripting_icon.png)     | Create module      |   no |
+| ![Create card](diagrams/scripting_icon.png)| Create card      |    yes |
+| ![Delete cell](diagrams/scripting_icon.png)| Delete cell      |    no |
+| ![Export script](diagrams/scripting_icon.png) | Export script      |    yes |
+| ![Import file](diagrams/scripting_icon.png) | Import file      |    no |
+| ![Insert cell](diagrams/scripting_icon.png) | Insert cell      |    yes |
+| ![Restart kernel](diagrams/scripting_icon.png)| Restart kernel      |    no  |
+| ![Run](diagrams/scripting_icon.png)| Restart kernel      |    Run  |
+| ![Run all](diagrams/scripting_icon.png)| Restart kernel      |    Run all  |
+| ![Switch connection](diagrams/scripting_icon.png)| Restart kernel      |    no  |
+
 
 <table>
   <tr>
