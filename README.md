@@ -113,9 +113,9 @@ Python and R scripting features are distributed across the app.  Shared scripts 
 | ![Import file](diagrams/import-file.svg) | Import file      |    Enables importing of scripts into the console from common files like Python, R or Jupyter Notebook files. |
 | ![Insert cell](diagrams/insert-cell.svg) | Insert cell      |    Inserts a new scripting cell. |
 | ![Restart kernel](diagrams/restart.svg)| Restart kernel      |    Restarts the execution kernel within the Kernel Gateway.  Restarting stops running scripts and clears the namespace and any data held in memory.  |
-| ![Run](diagrams/run.svg)| Restart kernel      |    Run  | Runs script in active cell.
-| ![Run all](diagrams/run-all.svg)| Restart kernel      |    Run all  | Runs all scripts in active cell.
-| ![Switch connection](diagrams/switch-connections.svg)| Restart kernel      |    Enables connection changing from one Kernel Gateway to another.  |
+| ![Run](diagrams/run.svg)| Run  | Runs script in active cell. |
+| ![Run all](diagrams/run-all.svg) |    Run all  | Runs all scripts in active cell. |
+| ![Switch connection](diagrams/switch-connections.svg)| Switch connection      |    Enables connection changing from one Kernel Gateway to another.  |
 
 
 <table>
