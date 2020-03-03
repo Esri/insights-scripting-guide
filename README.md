@@ -209,7 +209,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ## FAQs and Troubleshooting
 
-_How do I install additional Python libraries using the console that are not in my Kernel Gateway?_
+#### How do I install additional Python libraries using the console that are not in my Kernel Gateway?
 
 You can do this by putting an explanation in front of a _pip install_ command. Like,
 
@@ -217,7 +217,7 @@ You can do this by putting an explanation in front of a _pip install_ command. L
 !pip install BeautifulSoup4
 ```
 
-If all goes well (after running the command), download activity will apear in the output cell.  When the command finishes, you can then run import your library and run scripts like normal. 
+If all goes well (after running the command), download activity will apear in the output cell.  When the command finishes, you can then import your library and run scripts like normal. 
 
 ```py
 from bs4 import BeautifulSoup
@@ -226,13 +226,13 @@ print(soup.prettify())
 ```  
 
 
-_Insights is running in the web browser and when connecting to a Kernel Gateway an error says "__Not able to add this connection. Try with a different URL or web socket or check if your gateway is running.__"_
+#### Insights is running in the web browser and when connecting to a Kernel Gateway an error says "__Not able to add this connection. Try with a different URL or web socket or check if your gateway is running."
 
 If you've followed the guide (and ran the selfsign.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
 
 
 
-_My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?_
+#### My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?_
 
 A fundamental way to troubleshoot this problem is confirm that all needed computers can talk to each other.   If you are running Insights in Enterprise this means each ArcGIS Server machine, plus your Kernel Gateway and personal computer must all be able to communicate with each other.   Insights Desktop entails less troubleshooting.  For Insights Desktop deployments, only the Kernel Gateway and your personal computer need to talk to each other.
 
