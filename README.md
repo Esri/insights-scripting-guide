@@ -9,7 +9,9 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 * Anaconda (version 3.7)
 * See needed Python and R [dependencies](gateway/insights-base.yml) 
 
-_Note: Scripting is not supported in Insights in ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections and scripting._ 
+_Note: Scripting is not supported in Insights running in ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections, ArcGIS Enterprise connections, database and scripting features._ 
+
+You can access an archived version of this documentation [here](README_OLD.md).
 
 
 ## Setup Kernel Gateway 
@@ -31,7 +33,7 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
 5) Run below commands
 
-    ```
+    ```shell
     conda env create -f insights-base.yml
     conda activate insights-base
     python selfsign.py
@@ -41,13 +43,13 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 
 * Run this command if using __Insights in ArcGIS Enterprise__
 
-    ```
+    ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
     ```
 
 * Run this command if using __Insights Desktop__
 
-    ```
+    ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
@@ -62,20 +64,20 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 3) Copy ```selfsign.py``` and ```Dockerfile``` into ```gateway``` folder
 4) Run ```selfsign.py``` to create certificates in the ```gateway``` folder
 
-    ```
+    ```shell
     python selfsign.py
     ```
 
 5) Create a ```data``` folder within ```gateway``` and put your data files there
 6) Run this command to create the Kernel Gateway Docker image
 
-    ```
+    ```shell
     docker build -t insights-gateway .
     ```
 
 7) Start the Kernel Gateway
 
-    ```
+    ```shell
     docker run -p 9999:9999 insights-gateway
     ```
 
@@ -154,6 +156,14 @@ The console supports the following magic command.  This magic command must be pl
 | Magic command           | Description |
 |:-------------:|:-------------|
 | ```%insights_return(<data frame object>)```     | Converts Python or R data frames into Insights datasets.  When ```%insights_return(df)```  is run it will generate an Insights dataset from the ```df``` object.  Data will be persisted in the workbook (when the workbook is saved) and will appear in the data pane after execution.  |
+
+
+# What is ArcGIS Insights?
+
+Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Answer questions you didn’t know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
+
+* [Case studies and testimonials](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/overview)
+* [Product and analytical tool documentation](https://doc.arcgis.com/en/insights/)
 
 
 ## Deployment Patterns
@@ -249,7 +259,7 @@ Tip:  On windows, run ```ipconfig``` and reference the Iv4 address to get the IP
 
 ## Get Insights Desktop
 
-[Download Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download).
+[Download Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download)
 
 
 ## Licensing
