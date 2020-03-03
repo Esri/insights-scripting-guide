@@ -144,10 +144,7 @@ td:last-child {
 
 
 </style>
-</head>
-<body>
-
-<table style="font-family: BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; border-collapse: collapse; width: 100%;">
+<table>
   <tr>
     <th>Icon</th>
     <th>Tool Name</th>
@@ -214,7 +211,7 @@ td:last-child {
 
 
 
-### Learn about shortcuts and magic commands
+### Shortcuts and magic commands
 
 The console uses keyboard shortcuts and magic commands so routine tasks can be performed quickly and efficiently.
 * Use the ```%insights_return(<R data frame or Pandas DataFrame>)``` magic command to make R or Python data frames available to Insights.  Following the command, your data frame data will appear in the data pane,  just like other layers and datasets do.
