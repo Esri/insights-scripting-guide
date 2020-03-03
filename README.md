@@ -78,7 +78,7 @@ Urls can be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address
 
 
 | URL           | Insights in Enterprise | Insights Desktop  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:|:-----:|
 | http://localhost:9999      | no | yes |
 | https://localhost:9999      | no      |   no |
 | http://pickle:9999| no      |    yes |
@@ -186,7 +186,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ## FAQs and Troubleshooting
 
-_Insights is running in the web browser and when connecting to a Kernel Gateway an error says "Not able to add this connection. Try with a different URL or web socket or check if your gateway is running."_
+_Insights is running in the web browser and when connecting to a Kernel Gateway an error says "__Not able to add this connection. Try with a different URL or web socket or check if your gateway is running.__"_
 
 If you've followed the guide (and ran the selfsign.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
 
