@@ -77,12 +77,12 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 
 ## Create a connection
 
-To create a connection complete the Kernel Gateway Connection form. 
+To create a connection to your Kernel Gateway follow these steps: 
 
 
 1) Open Insights
 2) Click the _Scripting_ icon  ![Open console](diagrams/scripting-console.svg) 
-3) Complete Kernel Gateway Connection form
+3) Complete Kernel Gateway connection form
 
 
 _Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what connections may look like see [Connection examples](#Connection-examples).  
