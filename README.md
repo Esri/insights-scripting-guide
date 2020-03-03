@@ -69,12 +69,12 @@ To create a connection complete the Kernel Gateway Connection form.
 3) Complete Kernel Gateway Connection form
 
 
-_Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what this might look like see the [URL Patterns](#URL-Patterns) table.  
+_Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what this might look like see the [Connection examples](#Connection-examples).  
 
 
-## URL Patterns
+## Connection examples
 
-Urls can be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any open inbound port number.  If using 443, a connection  will not require the port number. 
+Urls can be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any __open__ inbound port number.  If using 443, a connection  will not require the port number.  Here are some examples.
 
 
 | URL           | Insights in Enterprise | Insights Desktop  |
