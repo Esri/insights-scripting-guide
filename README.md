@@ -99,12 +99,119 @@ _Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choos
 
 
 
-## Learn about Insights scripting features within the console
+## General Features
 
-![Console Pre Kernel Connection](diagrams/pre_kernel.png)
+Python and R scripting features are distributed across the app.  Shared scripts can be accessed from the _Add_ dialog, script  modules are accessed via the data pane and the editor console has many features.  Refer to this table for an overview of scripting tool. 
 
 
-![Console Post Kernel Connection](diagrams/post_kernel.png)
+<style>
+table {
+  font-family: BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: rgb(115,115,115);
+  color: #fff;
+  border: 1px solid #808080;
+  padding: 8px;
+}
+
+th:last-child {
+  text-align: left;
+}
+
+td {
+  border: 1px solid #808080;
+  padding: 8px;
+}
+
+td:first-child {
+  background-color: #A9A9A9;
+  width: 10%;
+  text-align: center;
+}
+
+td:nth-child(2) {
+  text-align: center;
+}
+
+td:last-child {
+  width: 70%;
+  text-align: left;
+}
+
+
+</style>
+</head>
+<body>
+
+<table style="font-family: BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; border-collapse: collapse; width: 100%;">
+  <tr>
+    <th>Icon</th>
+    <th>Tool Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><img src="images/scripting-console.svg"/></td>
+    <td>Open console</td>
+    <td>Opens the Python and R scripting console or Kernel Gateway connection dialog. If no Kernel Gateway connection exists within the page, this is when the connection dialog openes.</td>
+  </tr>
+  <tr>
+    <td><img src="images/add-model.svg"/></td>
+    <td>Create module</td>
+    <td>Creates a script from selected cells then adds a module to the data pane.</td>
+  </tr>
+  <tr>
+    <td><img src="images/create-card.svg"/></td>
+    <td>Create card</td>
+    <td>Takes the active cell and creates a card.</td>
+  </tr>
+  <tr>
+    <td><img src="images/delete-cell.svg" width="16px" height="16px"/></td>
+    <td>Delete cell</td>
+    <td>Deletes the active cell.</td>
+  </tr>
+  <tr>
+    <td><img src="images/export-save.svg"/></td>
+    <td>Export script</td>
+    <td>Enables saving of cell (or cells) to common formats like Python, R, or Jupyter Notebook files.</td>
+  </tr>
+  <tr>
+    <td><img src="images/import-file.svg"/></td>
+    <td>Import file</td>
+    <td>Enables importing of scripts into the console from common files like Python, R or Jupyter Notebook files.</td>
+  </tr>
+    <tr>
+    <td><img src="images/insert-cell.svg"/></td>
+    <td>Insert cell</td>
+    <td>Inserts a new scripting cell.</td>
+  </tr>
+      <tr>
+    <td><img src="images/restart.svg"/></td>
+    <td>Restart kernel</td>
+    <td>Restarts the execution kernel within the Kernel Gateway.  Restarting stops running scripts and clears the namespace and any data held in memory.</td>
+  </tr>
+        <tr>
+    <td><img src="images/run.svg"/></td>
+    <td>Run</td>
+    <td>Runs script in active cell.</td>
+  </tr>
+      <tr>
+    <td><img src="images/run-all.svg"/></td>
+    <td>Run all</td>
+    <td>Runs all scripts in all cells.</td>
+  </tr>
+    <tr>
+    <td><img src="images/switch-connections.svg" width="16px" height="16px"/></td>
+    <td>Switch connection</td>
+    <td>Enables connection changing from one Kernel Gateway to another.</td>
+  </tr>
+
+</table>
+
+
 
 
 ### Learn about shortcuts and magic commands
