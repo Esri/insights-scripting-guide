@@ -121,7 +121,7 @@ Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address
 
 ## General Features
 
-Python and R scripting features are distributed across the app.  Shared scripts are accessed from the _Add_ dialog.  Script modules and module options are accessed via the data pane. Lastly, the console itself has many script features.  Refer to this table for an overview of tools and capabilities.
+Python and R scripting features are distributed across the app.  Shared scripts are accessed from the _Add_ dialog.  Script modules and module options are accessed via the _Data Pane_. Lastly, the _Console_ itself has many script features.  Refer to this table for an overview of tools and capabilities.
 
 | Icon           | Tool Name | Description  |
 | :-------------: |:-------------:| :-----|
