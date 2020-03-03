@@ -19,10 +19,11 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 * [Deploy with Anaconda](#Deploy-with-Anaconda)
 * [Deploy with Docker](#Deploy-with-Docker)
 
+ Check out [Deployment Patterns](#Deployment-Patterns) for system planning recommendations.
+
 
 ### Deploy with Anaconda
 
-It's recommended to read [Deployment Patterns](#Deployment-Patterns) before following these steps.
 
 1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
@@ -56,7 +57,22 @@ It's recommended to read [Deployment Patterns](#Deployment-Patterns) before foll
 
 ### Deploy with Docker
 
-...Coming soon...
+1) Install [Docker](https://www.docker.com/products/docker-desktop)
+2) Create a folder named ```gateway```
+3) Copy ```selfsign.py``` and ```Dockerfile``` into ```gateway``` folder
+4) Run ```selfsign.py``` to create certificates in the ```gateway``` folder
+
+```python selfsign.py```
+
+5) Create a ```data``` folder within ```gateway``` and put your data files there
+6) Run this command to create the Kernel Gateway Docker image
+
+```docker build -t insights-gateway .```
+
+7) Start the Kernel Gateway
+
+``` docker run -p 9999:9999 insights-gateway ```
+
 
 
 ## Create a connection
@@ -69,12 +85,12 @@ To create a connection complete the Kernel Gateway Connection form.
 3) Complete Kernel Gateway Connection form
 
 
-_Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what this might look like see the [Connection examples](#Connection-examples).  
+_Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what connections may look like see [Connection examples](#Connection-examples).  
 
 
 ## Connection examples
 
-Urls can be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any __open__ inbound port number.  If using 443, a connection  will not require the port number.  Here are some examples.
+Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any __open__ inbound port number.  If using 443, a connection  will not require the port number.  Here are some examples.  __Yes__ means connection schema is supported.  No, means that URL connection will likely fail.
 
 
 | URL           | Insights in Enterprise | Insights Desktop  |
@@ -96,7 +112,7 @@ Urls can be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address
 
 ## General Features
 
-Python and R scripting features are distributed across the app.  Shared scripts can be accessed from the _Add_ dialog.  Script modules and module options are accessed via the data pane. Lastly, the console itself has many features.  Refer to this table for an overview of tools and capabilities.
+Python and R scripting features are distributed across the app.  Shared scripts are accessed from the _Add_ dialog.  Script modules and module options are accessed via the data pane. Lastly, the console itself has many script features.  Refer to this table for an overview of tools and capabilities.
 
 | Icon           | Tool Name | Description  |
 | :-------------: |:-------------:| :-----|
@@ -135,7 +151,7 @@ The console supports the following magic command.  This magic command must be pl
 
 ## Deployment Patterns
 
-There are various configurations to choose from when planning a Jupyter Kernel Gateway with Insights.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degress of effort regarding setup and maintenance.
+There are various configurations to choose from when planning a Jupyter Kernel Gateway with Insights.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degrees of effort regarding setup and maintenance.
 
 These conceptual diagrams were designed to help organizations visualize different kinds Jupyter Kernel Gateway configurations next to different kinds of Insights deployments. 
 
@@ -154,7 +170,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ![Dedicated Kernel Gateway](diagrams/jkg-dedicated-diagram.png)
 
-* This configuration entails moderate newtworking and firewall considerations and skills
+* This configuration entails moderate networking and firewall considerations and skills
 * Data files should live on file server or Kernel Gateway machine
 
 
@@ -162,7 +178,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ![Co-Located Kernel Gateway](diagrams/jkg-colocated-diagram.png)
 
-* This configuration entails moderate newtworking and firewall considerations and skills
+* This configuration entails moderate networking and firewall considerations and skills
 * Data files should live on file server or Kernel Gateway machine
 
 
@@ -170,7 +186,7 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ![Client Kernel Gateway](diagrams/jkg-client-diagram.png)
 
-* This configuration entails moderate newtworking and firewall considerations and skills
+* This configuration entails moderate networking and firewall considerations and skills
 * Data files may live on personal computer or file server
 
 
@@ -178,13 +194,31 @@ These conceptual diagrams were designed to help organizations visualize differen
 ### Cloud Kernel Gateway 
 
 * Data files may need to be accessible from the cloud
-* This configuration entails advanced newtworking and firewall skills and considerations
+* This configuration entails advanced networking and firewall skills and considerations
 
 ![Cloud Kernel Gateway](diagrams/jkg-cloud-diagram.png)
 
 
 
 ## FAQs and Troubleshooting
+
+_How do I install additional Python libraries with the Insights console that are not in my Kernel Gateway?_
+
+You can do this by putting an explanation in front of a _pip install_ command. Like,
+
+```
+!pip install BeautifulSoup4
+```
+
+If all goes well the output will show download activity.  Then once done you can then import your library like, 
+
+```
+from bs4 import BeautifulSoup
+soup = BeautifulSoup("<p>Hello Insights!</p>")
+print(soup.prettify())
+```  
+
+and begin using it.
 
 _Insights is running in the web browser and when connecting to a Kernel Gateway an error says "__Not able to add this connection. Try with a different URL or web socket or check if your gateway is running.__"_
 
@@ -194,7 +228,7 @@ If you've followed the guide (and ran the selfsign.py file), you have created a 
 
 _My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?_
 
-A fundemental way to toubleshoot this problem is confirm that all needed computers can talk to each other.   If you are running Insights in Enterprise this means each ArcGIS Server machine, plus your Kernel Gateway and personal computer must all be able to communicate with each other.   Insights Desktop entails less troubleshooting.  For Insights Desktop only the Kernel Gateway and your personal computer need to talk to each other.
+A fundamental way to troubleshoot this problem is confirm that all needed computers can talk to each other.   If you are running Insights in Enterprise this means each ArcGIS Server machine, plus your Kernel Gateway and personal computer must all be able to communicate with each other.   Insights Desktop entails less troubleshooting.  For Insights Desktop deployments, only the Kernel Gateway and your personal computer need to talk to each other.
 
  Try getting the IP address of:
  
@@ -209,7 +243,7 @@ Tip:  On windows, run ```ipconfig``` and reference the Iv4 address to get the IP
 
 ## Get Insights Desktop
 
-[Get Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download).
+[Download Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download).
 
 
 ## Licensing
