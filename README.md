@@ -81,8 +81,9 @@ To create a connection to your Kernel Gateway follow these steps:
 
 
 1) Open Insights
-2) Click the _Scripting_ icon  ![Open console](diagrams/scripting-console.svg) 
-3) Complete Kernel Gateway connection form
+2) Create a new workbook
+4) Click the _Scripting_ icon  ![Open console](diagrams/scripting-console.svg) 
+5) Complete Kernel Gateway connection form
 
 
 _Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what connections may look like see [Connection examples](#Connection-examples).  
