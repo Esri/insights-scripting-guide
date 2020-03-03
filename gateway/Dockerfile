@@ -1,18 +1,17 @@
-# jupyter image w/ Python
+# Jupyter image w/ Python
 FROM jupyter/scipy-notebook
 
 LABEL maintainer="Insights"
 
 USER root
 
-# uncomment to set working directory in container
-# WORKDIR /data
+WORKDIR /data
 
-# uncomment to copy certificate and key for tls (https)
-# COPY /certs/* /etc/ssl/certs/
+COPY server.crt /etc/ssl/certs/
+COPY server.key /etc/ssl/certs/
 
 # uncomment to copy data to the container
-# COPY /data/* /data/
+COPY /data/* /data/
 
 # R pre-requisites
 RUN apt-get update && \
@@ -64,4 +63,4 @@ ENV KG_LIST_KERNELS='True'
 EXPOSE 9999
 
 # set tls (https) on the kernel gateway
-CMD ["jupyter", "kernelgateway", "--KernelGatewayApp.ip=0.0.0.0", "--KernelGatewayApp.port=9999", "--KernelGatewayApp.allow_credentials='*'", "--KernelGatewayApp.allow_headers='*'", "--KernelGatewayApp.allow_methods='*'", "--KernelGatewayApp.certfile=/etc/ssl/certs/<your_cert.crt>", "--KernelGatewayApp.keyfile=/etc/ssl/certs/<your_key>.key"]
+CMD ["jupyter", "kernelgateway", "--KernelGatewayApp.ip=0.0.0.0", "--KernelGatewayApp.port=9999", "--KernelGatewayApp.allow_credentials='*'", "--KernelGatewayApp.allow_headers='*'", "--KernelGatewayApp.allow_methods='*'", "--KernelGatewayApp.certfile=/etc/ssl/certs/server.crt", "--KernelGatewayApp.keyfile=/etc/ssl/certs/server.key"]

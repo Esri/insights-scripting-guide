@@ -1,361 +1,268 @@
-# ArcGIS Insights scripting guide
+# Insights Scripting Guide
 
-Welcome to the ArcGIS Insights scripting guide.
+This guide offers a reference for creating custom features in ArcGIS Insights using Python and R.  It is the definitive guide for Insights scripting topics and a resource for implementing Jupyter's Kernel Gateway.
+ 
 
-This repo contains information on getting started with scripting in ArcGIS Insights. This feature enables the execution of Python and R code using a bring-your-own scripting environment. Among many topics, we outline how to deploy a Jupyter Kernel Gateway, how to connect to a Jupyter Kernel Gateway, and tips and tricks for using the ArcGIS Insights scripting environment with other ArcGIS Insights features. In addition, the repo serves as a place to find and share useful Python and R scripts and creates a community around those who prefer to write code to advance data science and knowledge sharing.
+## Prerequisites
 
-We welcome any contributions for improving this guide. If you find a bug or would like to report a problem in the ArcGIS Insights scripting environment, please log an issue in this repo.
+* ArcGIS Insights (version 2020.x)
+* Anaconda (version 3.7)
+* See needed Python and R [dependencies](gateway/insights-base.yml) 
 
-## Overview
+_Note: Scripting is not supported in Insights running in ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections, ArcGIS Enterprise connections, database and scripting features._ 
 
-* Learn how to configure a Jupyter Kernel Gateway (this is a requirement for using the ArcGIS Insights scripting environment).
-* Pick a [Windows](#windows-instructions) or [macOS](#macos-instructions) machine, such as a desktop or laptop, to host your Jupyter Kernel Gateway.
-* Generate Transport Layer Security (TLS) or Secure Sockets Layer (SSL) certificates.
-* Follow the guide for installing and deploying a Jupyter Kernel Gateway.
-* Learn tips about keyboard shortcuts and important scripting options.
-* Search for Python and R code.
-* Contribute Python and R code.
-* Read ArcGIS Insights use cases and product documentation.
-* Try ArcGIS Insights in Enterprise.
-* Use the ArcGIS Insights scripting environment in Enterprise.  
+You can access an archived version of this documentation [here](README_OLD.md).
 
 
-### Required packages to export data from the scripting environment to the data pane
-To export data from the ArcGIS Insights scripting environment to the ArcGIS Insights data pane, the following Python and R packages are used:
-* The Python Kernel uses ```pandas```, ```geopandas```, ```numpy```, ```matplotlib```, ```msgpack```, ```shapely``` and ```requests```.
-* The R Kernel uses ```jsonlite```, ```data.table```, and ```itertools```.
+## Setup Kernel Gateway 
 
-## Install and deploy a Jupyter Kernel Gateway
+Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which is an open source web server distributed through ```conda-forge``` and other repository channels.    To setup a Kernel Gateway, with the required dependencies choose one of the following deployment sections.
 
-The ArcGIS Insights scripting environment uses a Jupyter Kernel Gateway. This section includes guidance on how to configure a Jupyter Kernel Gateway. It requires using either Docker or Anaconda and enabling TLS or SSL for security. TLS and SSL permit ArcGIS Insights to access your gateway over HTTPS and WSS.
+* [Deploy with Anaconda](#Deploy-with-Anaconda)
+* [Deploy with Docker](#Deploy-with-Docker)
 
-## Windows instructions
+ Check out [Deployment Patterns](#Deployment-Patterns) for system planning recommendations.
 
-### Create a TLS or SSL certificate
-> The instructions below will create a self-signed certificate. If you are able to create a trusted certificate in your enterprise, you can skip these steps and use the trusted enterprise certificate.
 
-1) Clone the insights-scripting-guide repo to your local machine.
-2) Use [Anaconda](https://www.anaconda.com/distribution/#windows) to install ``` openssl ``` for creating a self-signed certificate.
-3) Open the Anaconda Command Prompt window. 
-4) Create a folder called __insightsgw__ on your local machine. For example, ``` C:\insightsgw ```.
-5) Copy and paste the __insightsgw.cnf__ file from this repo's __Cert__ folder into the __insightsgw__ folder and edit each placeholder value (__host_name__ and __domain__) within the file.
-  
-Example:
+### Deploy with Anaconda
 
-``` 
-[dn]
-CN=insights.esri.com
-[req]
-distinguished_name=dn
-[EXT]
-subjectAltName=DNS:insights.esri.com
-keyUsage=digitalSignature
-extendedKeyUsage=serverAuth
-```
 
-> When editing the __insightsgw.cnf__ file, if you are unsure of your __host_name__ run ``` hostname ``` from a command prompt to get the correct value. If you are unsure of your __domain__ run ``` set user ``` from a command prompt to get the correct value.
+1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
+2) Create a folder named ```gateway```
+3) Copy ```selfsign.py``` and ```insights-base.yml``` into ```gateway``` folder
+4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
+5) Run below commands
 
-6) Using the Anaconda Command Prompt, change directories to __insightsgw__. For example, ``` cd C:\insightsgw ```.
-7) Change the placeholders for __<host_name>__ and __<dns_name>__ and run the following command:
+    ```shell
+    conda env create -f insights-base.yml
+    conda activate insights-base
+    python selfsign.py
+    ```
 
-``` openssl req -x509 -days 365 -out <host_name>.crt -keyout <host_name>.key -newkey rsa:2048 -nodes -sha256 -subj "/CN=<host_name>.<dns_name>" -extensions EXT -config insightsgw.cnf ```
+6) Start the Kernel Gateway:
 
-Example:
+* Run this command if using __Insights in ArcGIS Enterprise__
 
-``` openssl req -x509 -days 365 -out insights.crt -keyout insights.key -newkey rsa:2048 -nodes -sha256 -subj "/CN=insights.esri.com" -extensions EXT -config insightsgw.cnf ```
+    ```shell
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
+    ```
 
-8) Close the Anaconda Command Prompt when the command has finished running. There should now be a __<host_name>.key__ and a __<host_name>.crt__ file in your __insightsgw__ folder.
-9) Using administrative privileges, import the .crt file in your __insightsgw__ folder into the Windows Certificate Store's Trusted Root Certification Authorities. Use the following steps:
-   * Open Manage computer certificates.
-   * Open Trusted Root Certification Authorities.
-   * Right click Certificates.
-   * Click All Tasks > Import.
-   * Select the .crt file created using ``` openssl ```.
-   * Flush DNS using by running ```ipconfig /flushdns``` from the command prompt.
-10) Add new _Inbound_ and _Outbound_ rules for port 9999 using Windows Defender Firewall with Advanced Security. 
+* Run this command if using __Insights Desktop__
 
-### Create a gateway
+    ```shell
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
+    ```
 
-_When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda section below (not both)._
+7) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
 
-#### Create a gateway using Docker
 
-1) Install [Docker](https://www.docker.com/products/docker-desktop).
-2) Create a folder called __insightsgw__ on your local machine for example, ``` c:\insightsgw ```.
-3) Copy and paste ``` Dockerfile ``` from this repo's _Docker_ folder into the __insightsgw__ folder.
-4) Edit ``` Dockerfile ``` to fit your requirements.
 
-> The ENV KG_ALLOW_ORIGIN and ENV KG_LIST_KERNELS parameters are required for the Jupyter Kernel Gateway
+### Deploy with Docker
 
-> If you want to load data into the container to work with inside the ArcGIS Insights console, create a local folder and add the data files to it and then set that folder to be copied from the local machine to the container in the ```Dockerfile```. For example, create a folder in your local project folder __insightsgw__ named __data__ and add working data files to it. Then, add ```COPY /data/* /data/``` to the ```Dockerfile``` to copy the local __data__ folder with the files to the container. Adding ```WORKDIR /data``` to the ```Dockerfile``` will set the container working folder to the __data__ folder.
+1) Install [Docker](https://www.docker.com/products/docker-desktop)
+2) Create a folder named ```gateway```
+3) Copy ```selfsign.py``` and ```Dockerfile``` into ```gateway``` folder
+4) Run ```selfsign.py``` to create certificates in the ```gateway``` folder
 
-5) Run ``` docker build -t insightsgw . ``` from a command prompt in the folder created in step 2. For example, ``` c:\insightsgw>docker build -t insightsgw . ```
-6) Run ``` docker run -p 9999:9999 insightsgw ``` from a command prompt in the folder created in step 2. For example, ``` c:\insightsgw>docker run -p 9999:9999 insightsgw ```
+    ```shell
+    python selfsign.py
+    ```
 
-> If there is a database on the local host machine with data to be used in the ArcGIS Insights console, a connection to it can be created in the docker run command. For example, connecting to PostgreSQL in Windows ``` docker run -p 9999:9999 -e DB_PORT=5432 -e DB_HOST=docker.for.win.host.internal insightsgw ```
+5) Create a ```data``` folder within ```gateway``` and put your data files there
+6) Run this command to create the Kernel Gateway Docker image
 
-&nbsp;&nbsp;&nbsp;&nbsp;Upon success the prompt will show the following output: 
+    ```shell
+    docker build -t insights-gateway .
+    ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` [KernelGatewayApp] Jupyter Kernel Gateway at https://0.0.0.0:9999 ```
+7) Start the Kernel Gateway
 
-7) Leave the command prompt open while the Jupyter Kernel Gateway is running.
-8) To test that the gateway is running as expected, open a web browser and navigate to ``` https://<host_name>.<dns_domain>:9999/api ```. For example, https://insights.esri.com:9999/api.  
+    ```shell
+    docker run -p 9999:9999 insights-gateway
+    ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;You should see JSON text on the web page showing the api version information. For example, 
-``` {"version": "5.7.4"} ```.
 
-> The default configuration of Docker is limiting so it is best practice to use Docker's Advanced Setting tab to configure additional CPU and memory resources.
 
-> In addition to configuring resources for the container from the Docker application, they can be configured within ``` Dockerfile ``` as well. See the Docker documentation for configuration details.
+## Create a connection
 
-#### Create a gateway using Anaconda
+To create a connection to your Kernel Gateway follow these steps: 
 
-1) Install [Anaconda](https://www.anaconda.com/distribution/).
-2) Open the Anaconda Command Prompt window.
-3) Create an ArcGIS Insights Python environment using the command ``` conda create -n my_insights_env python=3.7 ```.
-4) Activate the ArcGIS Insights Python environment using the command ``` conda activate my_insights_env ```.
-5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway=2.1.0 ```.
-6) Install pandas and numpy packages using the command ``` conda install -c anaconda numpy pandas```.
-7) Install geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
-8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
-9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
-10) Install requests package using the command ``` conda install -c conda-forge requests ```.
-11) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
-12) Install essential R packages using the command ``` conda install -c r r-essentials ```.
-13) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
 
-> Consider what directory to use when launching the Jupyter Kernel Gateway. If you have a ``` C:\insightsgw\data ``` directory which contains ``` .csv ``` files, launching the Jupyter Kernel Gateway from this folder will enable easy access to those files within scripts by allowing the use of relative paths for file and folder access.
+1) Open Insights
+2) Create a new workbook
+4) Click the _Scripting_ icon  ![Open console](diagrams/scripting-console.svg) 
+5) Complete Kernel Gateway connection form
 
-> The ``` KernelGatewayApp.allow_origin ``` and ``` JupyterWebsocketPersonality.list_kernels ``` parameters are required.
 
-10) Launch the Jupyter Kernel Gateway using the following command, changing the placeholders for __<host_name>__
-``` 
-jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=C:\insightsgw\<host_name>.crt --keyfile=C:\insightsgw\<host_name>.key 
-```
+_Note:_  Connections must reference the Kernel Gateway root URL.  For tips on what connections may look like see [Connection examples](#Connection-examples).  
 
-Example:
 
-``` 
-jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=C:\insightsgw\insights.crt --keyfile=C:\insightsgw\insights.key 
-```
-&nbsp;&nbsp;&nbsp;&nbsp;Upon success the prompt will show the following output: 
+## Connection examples
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` [KernelGatewayApp] Jupyter Kernel Gateway at https://0.0.0.0:9999 ```
+Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address, localhost, FQDN etc.  You can use any available inbound port number that is not already in use.  If using 443, a connection  will not require the port number.  Here are some examples.  __Yes__ means connection schema is supported.  No, means that URL connection will likely fail (not work).
 
-11) Leave the command prompt open while the Jupyter Kernel Gateway is running.
 
-12) To test that the Gateway is running as expected, open a web browser and navigate to ``` https://<host_name>.<dns_domain>:9999/api ```. For example, https://insights.esri.com:9999/api.
+| Connection URL           | Insights in Enterprise | Insights Desktop  |
+| ------------- |:-------------:|:-----:|
+| http://localhost:9999      | no | yes |
+| https://localhost:9999      | no      |   no |
+| http://pickle:9999| no      |    yes |
+| https://pickle:9999| no      |    no |
+| http://12.120.95.153:9999 | no      |    yes |
+| https://12.120.95.153:9999| yes      |    no |
+| http://pickle.esri.com:9999| no      |    yes |
+| https://pickle.esri.com:9999| yes      |    no <sup>1</sup> |
 
-&nbsp;&nbsp;&nbsp;&nbsp;You should see JSON text on the web page showing the api version information. For example, 
-``` {"version": "5.7.4"} ```.
+<sup>1</sup> Insights Desktop can make connections to HTTPS Kernel Gateway endpoints, if the Kernel Gateway uses a domain or a certificate authority certificate.
 
-> If you are experiencing issues connecting to the console after creating a self-signed certificate, check the browser to make sure an exception does not need to be added for the site created in the certificate. In the example above, the site is ``` https://insights.esri.com ```. Navigate to ``` https://insights.esri.com ``` in the browser. If an exception is required for the self-signed certificate, a warning page will be shown:
+<sup>2</sup> If using port 443, the connection url will look like this ``` https://pickle.esri.com ```.
 
-> <img src="/Graphics/cert_excep.png" />
 
-> Click Advanced
 
-> <img src="/Graphics/cert_excep_add.png" />
+## General Features
 
-> Click Add Exception...
+Python and R scripting features are distributed across the app.  Shared scripts are accessed from the _Add_ dialog.  Script modules and module options are accessed via the _Data Pane_. Lastly, the _Console_ itself has many script features.  Refer to this table for an overview of tools and capabilities.
 
-> <img src="/Graphics/cert_excep_conf.png" />
+| Icon           | Tool Name | Description  |
+| :-------------: |:-------------:| :-----|
+| ![Open console](diagrams/scripting-console.svg)      | Open console | Opens the Python and R scripting console or Kernel Gateway connection dialog. If no Kernel Gateway connection exists within the page, this is when the connection dialog openes. |
+| ![Create module](diagrams/add-model.svg)     | Create module      |   Creates a script from selected cells then adds a module to the data pane. |
+| ![Create card](diagrams/create-card.svg)| Create card      |    Takes the active cell and creates a card. |
+| ![Delete cell](diagrams/delete-cell.svg)| Delete cell      |    Deletes the active cell. |
+| ![Export script](diagrams/export-save.svg) | Export script      |    Enables saving of cell (or cells) to common formats like Python, R, or Jupyter Notebook files. |
+| ![Import file](diagrams/import-file.svg) | Import file      |    Enables importing of scripts into the console from common files like Python, R or Jupyter Notebook files. |
+| ![Insert cell](diagrams/insert-cell.svg) | Insert cell      |    Inserts a new scripting cell. |
+| ![Restart kernel](diagrams/restart.svg)| Restart kernel      |    Restarts the execution kernel within the Kernel Gateway.  Restarting stops running scripts and clears the namespace and any data held in memory.  |
+| ![Run](diagrams/run.svg)| Run  | Runs script in active cell. |
+| ![Run all](diagrams/run-all.svg) |    Run all  | Runs all scripts in active cell. |
+| ![Switch connection](diagrams/switch-connections.svg)| Switch connection      |    Enables connection changing from one Kernel Gateway to another.  |
 
-> Click Confirm Security Exception
 
-## macOS instructions
+### Shortcuts
 
-### Create a TLS or SSL cert
-> The instructions below will create a self-signed certificate. If you are able to create a trusted certificate in your enterprise, you can skip these steps and use the trusted enterprise certificate.
+The console enables keyboard shortcuts to perform routine tasks quickly.
 
-1) Clone the insights-scripting-guide repo to your local machine.
-2) Create a directory called __insightsgw__ on your local machine. For example, ``` insightspc:insightsgw insightsuser$  ```.
-3) Copy and paste the __insightsgw.cnf__ file from this repo's __Cert__ directory into the __insightsgw__ directory and edit each placeholder value (__host_name__ and __domain__)  within the file.
+| Shortcut           | Description |
+|:-------------:|:-------------|
+| __Ctrl + B__     | Create comments for selected code. |
+| __Shift + Enter__      | Executes code in current cell. |
+| __Ctrl + Alt + B__         | Adds ```%insights_return(<data frame object>)``` magic command to cell  |
 
-Example:
 
-``` 
-[dn]
-CN=insights.esri.com
-[req]
-distinguished_name=dn
-[EXT]
-subjectAltName=DNS:insights.esri.com
-keyUsage=digitalSignature
-extendedKeyUsage=serverAuth
-```
+### Magic commands
 
-> When editing the __insightsgw.cnf__ file, if you are unsure of your __host_name__ run ``` sudo scutil --get LocalHostName ``` from the terminal to get the correct value. If you are unsure of your __domain__ run ``` sudo scutil --get HostName ``` from the terminal to get the correct value.
+The console supports the following magic command.  This magic command must be placed in it's own cell.
 
-4) Using the terminal, change directories to __insightsgw__. For example, ``` insightspc:Documents insightsuser$ cd insightsgw ```.
+| Magic command           | Description |
+|:-------------:|:-------------|
+| ```%insights_return(<data frame object>)```     | Converts Python or R data frames into Insights datasets.  When ```%insights_return(df)```  is run it will generate an Insights dataset from the ```df``` object.  Data will be persisted in the workbook (when the workbook is saved) and will appear in the data pane after execution.  |
 
-&nbsp;&nbsp;&nbsp;&nbsp;``` openssl ``` is installed on macOS by default.
 
-5) Change the placeholders for __<host_name>__ and __<dns_name>__ and run the following command: 
+## Deployment Patterns
 
-``` openssl req -x509 -days 365 -out <host_name>.crt -keyout <host_name>.key -newkey rsa:2048 -nodes -sha256 -subj '/CN=<host_name>.<dns_name>' -extensions EXT -config ../insightsgw.cnf ```
+There are various configurations to choose from when planning a Jupyter Kernel Gateway with Insights.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degrees of effort regarding setup and maintenance.
 
-Example:
+These conceptual diagrams were designed to help organizations visualize different kinds of Jupyter Kernel Gateway configurations next to different kinds of Insights deployments. 
 
-``` openssl req -x509 -days 365 -out insights.crt -keyout insights.key -newkey rsa:2048 -nodes -sha256 -subj '/CN=insights.esri.com' -extensions EXT -config ../insightsgw.cnf ```
+### Insights Desktop and Kernel Gateway
 
-&nbsp;&nbsp;&nbsp;&nbsp;The terminal can be closed when finished.
+![Insights Desktop and Kernel Gateway](diagrams/jkg-desktop-diagram.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;There should now be a __<host_name>.key__ and a __<host_name>.crt__ file in your __insightsgw__ directory.
 
-6) Using administrative privileges, import the .crt file in your __insightsgw__ directory into the Mac Keychain. Use the following steps:
-   * Open Keychain
-   * Choose System from Keychains
-   * Choose Certificates from Category
-   * Click File > Import Items
-   * Choose ```.crt``` file created using ```openssl```
-   * Flush the DNS using ```sudo killall -HUP mDNSResponder``` from terminal
+* This configuration entails low newtworking and firewall considerations
+* Data files may live on personal computer or file server
 
-### Create a gateway
 
-_When creating a Jupyter Kernel Gateway choose either the Docker or Anaconda section below (not both)._
+### Insights in ArcGIS Enterprise and Kernel Gateway  
 
-#### Create a gateway using Docker
+#### Dedicated
 
-1) Install [Docker](https://www.docker.com/products/docker-desktop).
-2) Create a directory called __insightsgw__ on your local machine. For example, ``` insightspc:insightsgw insightsuser$ ```.
-3) Copy and paste ``` Dockerfile ``` from this repo's __Docker__ directory into the __insightsgw__ directory.
-4) Edit ``` Dockerfile ``` to fit your requirements.
+![Dedicated Kernel Gateway](diagrams/jkg-dedicated-diagram.png)
 
-> The ENV KG_ALLOW_ORIGIN and ENV KG_LIST_KERNELS parameters are required for the Jupyter Kernel Gateway.
+* This configuration entails moderate networking and firewall considerations and skills
+* Data files should live on file server or Kernel Gateway machine
 
-> If you want to load data into the container to work with inside the ArcGIS Insights console, create a local directory and add the data files to it and then set that directory to be copied from the local machine to the container in ```Dockerfile```. For example, create a directory in your local project directory __insightsgw__ named __data__ and add working data files to it. Then, add ```COPY /data/* /data/``` to ```Dockerfile``` to copy the local __data__ directory with the files to the container. Adding ```WORKDIR /data``` to ```Dockerfile``` will set the container working directory to the __data__ directory.
-5) Run ``` docker build -t insightsgw . ``` from the terminal in the directory created in step 2. For example, ```insightspc:insightsgw insightsuser$docker build -t insightsgw . ```
-6) Run ``` docker run -p 9999:9999 insightsgw ``` from the terminal in the folder created in step 2. For example, ``` insightspc:insightsgw insightsuser$docker run -p 9999:9999 insightsgw  ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;Upon success the prompt will show the following output: 
+#### Co-Located
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` [KernelGatewayApp] Jupyter Kernel Gateway at https://0.0.0.0:9999 ```
+![Co-Located Kernel Gateway](diagrams/jkg-colocated-diagram.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;Leave the terminal open while the Jupyter Kernel Gateway is running.
+* This configuration entails moderate networking and firewall considerations and skills
+* Data files should live on file server or Kernel Gateway machine
 
-7) To test that the Gateway is running as expected, open a web browser and navigate to ``` https://<host_name>.<dns_domain>:9999/api ```. For example, https://insights.esri.com:9999/api.  
-&nbsp;&nbsp;&nbsp;&nbsp;You should see JSON text on the web page showing the api version information. For example, 
-``` {"version": "5.7.4"} ```.
 
-> The default configuration of Docker is limiting so it is highly recommended to use Docker's Advanced Setting tab to configure additional CPU and memory resources.
+#### Client Kernel Gateway System Design
 
-> In addition to configuring resources for the container from the Docker application, they can be configured within the Dockerfile as well. See the Docker documentation for configuration details.
+![Client Kernel Gateway](diagrams/jkg-client-diagram.png)
 
-#### Create a gateway using Anaconda
+* This configuration entails moderate networking and firewall considerations and skills
+* Data files may live on personal computer or file server
 
-1) Install [Anaconda](https://www.anaconda.com/distribution/).
-2) Open the terminal window.
-3) Create an ArcGIS Insights Python environment using the command ``` conda create -n my_insights_env python=3.6 ```.
-4) Activate the ArcGIS Insights Python environment using the command ``` source activate my_insights_env ```.
-5) Install Jupyter Kernel Gateway using the command ``` conda install -c anaconda jupyter_kernel_gateway ```.
-6) Install pandas and numpy packages using the command ``` conda install -c anaconda numpy pandas ```.
-7) Install geopandas and matplotlib package using the command ``` conda install -c conda-forge geopandas matplotlib ```.
-8) Install msgpack package using the command ``` conda install -c conda-forge msgpack-python ```.
-9) Install shapely package using the command ``` conda install -c conda-forge shapely ```.
-10) Install requests package using the command ``` conda install -c conda-forge requests ```.
-11) Add the ArcGIS API for Python using the command ``` conda install -c esri arcgis ```.
-12) Install essential R packages using the command ``` conda install -c r r-essentials ```.
-13) Add the itertools package using the command ``` conda install -c conda-forge r-itertools ```.
 
-> Consider what directory to use when launching the Jupyter Kernel Gateway. If you have a ``` /Users/insightsuser/Documents/insightsgw/data ``` directory which contains ``` .csv ``` files, launching the Jupyter Kernel Gateway from this directory will enable easy access to those files within scripts by allowing the use of relative paths for file and directory access.
 
-> The ``` KernelGatewayApp.allow_origin ``` and ``` JupyterWebsocketPersonality.list_kernels ``` parameters are required.
+### Cloud Kernel Gateway 
 
-10) Launch the Jupyter Kernel Gateway using the following command, changing the placeholders for __<host_name>__
-``` 
-jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=../certs/<host_name>.crt --keyfile=../certs/<host_name>.key
-```
+* Data files may need to be accessible from the cloud
+* This configuration entails advanced networking and firewall skills and considerations
 
-Example:
+![Cloud Kernel Gateway](diagrams/jkg-cloud-diagram.png)
 
-```
-jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=../certs/insights.crt --keyfile=../certs/insights.key
-```
-&nbsp;&nbsp;&nbsp;&nbsp;Upon success the prompt will show the following output: 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` [KernelGatewayApp] Jupyter Kernel Gateway at https://0.0.0.0:9999 ```
+## What is ArcGIS Insights?
 
-&nbsp;&nbsp;&nbsp;&nbsp;Leave the terminal open while the Jupyter Kernel Gateway is running.
-
-11) To test that the gateway is running as expected, open a web browser and navigate to ``` https://<host_name>.<dns_domain>:9999/api ```. For example,  https://insights.esri.com:9999/api.
-
-14) You should see JSON text on the web page showing the api version information. For example, 
-``` {"version": "5.7.4"} ```
-
-> If you are experiencing issues connecting to the console after creating a self-signed certificate, check the browser to make sure an exception does not need to be added for the site created in the certificate. In the example above, the site is ``` https://insights.esri.com ```. Navigate to ``` https://insights.esri.com ``` in the browser. If an exception is required for the self-signed certificate, a warning page will be shown:
-
-> <img src="/Graphics/cert_excep.png" />
-
-> Click Advanced
-
-> <img src="/Graphics/cert_excep_add.png" />
-
-> Click Add Exception...
-
-> <img src="/Graphics/cert_excep_conf.png" />
-
-> Click Confirm Security Exception
-
-## Use the console in ArcGIS Insights
-
-The ArcGIS Insights Console is available within workbooks only in the Enterprise version, not in Online. You can launch the console by clicking the _Console_ button <img src="/Graphics/console_16.png" />  next to the _Basemap_ button in the workbook toolbar.
-
-Learn more about the scripting console in the ArcGIS Insights documentation.
-
-### Connecting your Jupyter Kernel Gateway
-
-1) To connect ArcGIS Insights to your Jupyter Kernel Gateway, click the _Console_ button <img src="/Graphics/console_16.png" />.
-
-&nbsp;&nbsp;&nbsp;&nbsp;The New Jupyter Kernel Gateway connection window opens.
-
-2) Enter the URL and web socket connection information.
-
-&nbsp;&nbsp;&nbsp;&nbsp;If using the examples in this guide, the __URL__ parameter will be ``` https://<host_name>.<dns_domain>:9999 ``` and the __Web socket__ parameter will be ``` wss://<host_name>.<dns_domain>:9999 ```.
-  
-Example:
-
-  * URL
-  
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```https://insights.esri.com:9999```
-  
-  * Web Socket
-  
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```wss://insights.esri.com:9999```
-  
-### Shortcuts and ArcGIS Insights magic commands
-
-The ArcGIS Insights console uses keyboard shortcuts and magic commands so that routine tasks can be performed quickly and efficiently.
-* Use the ```%insights_return(<R data frame or Pandas DataFrame>)``` magic command to add an R data frame or Pandas DataFrame to the ArcGIS Insights data pane.
-
-&nbsp;&nbsp;&nbsp;&nbsp;__The %insights_return magic command must be run on a single line in a single cell in the ArcGIS Insights Console__
-
-* ``` Ctrl/control + Alt/option + B ``` Add ```%insights_return``` magic command to cell.
-* ``` Ctrl/control + / ``` Comment line.
-* ``` Ctrl/control + Spacebar ``` Enable IntelliSense.
-* ``` Shift/shift + Enter/return ``` Execute the code in the current cell.
-* ``` Shift/shift + Up Arrow or Down Arrow ``` Access the history of executed cells.
-
-
-# What is ArcGIS Insights?
-
-Part of the Esri Geospatial Cloud, ArcGIS Insights is web-based data analytics made for advanced location intelligence. Answer questions you didn’t know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts and tables to perform basic to complex analyses that scale based on skill level and business need.
+Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Using Insights you can questions you did not know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
 
 * [Case studies and testimonials](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/overview)
 * [Product and analytical tool documentation](https://doc.arcgis.com/en/insights/)
 
 
-## Why Get Involved?
+## FAQs and Troubleshooting
 
-Send feedback to us concerning the ArcGIS Insights scripting console. Found an issue or have questions? Feel free to post questions or comments and report bugs to the issues section of this repo.
+#### How do I install additional Python libraries using the console that are not in my Kernel Gateway?
 
-## Start using ArcGIS Insights with a Free Trial
+You can do this by putting an explanation point in front of a _pip install_ command. Like,
 
-Sign-up to [start a free trial](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/trial?adumkts=product&adupro=Insights_for_ArcGIS&aduc=pr&adum=blogs&utm_Source=pr&aduca=arcgis_insights_existing_customers_promotions&aduat=blog&aduco=exploring-the-atlantic-ocean-in-insights&adupt=lead_gen&sf_id=70139000001eKGfAAM).
+```
+!pip install BeautifulSoup4
+```
+
+If all goes well (after running the command), download activity will apear in the output cell.  When the command finishes, you can then import your library and run scripts like normal. 
+
+```py
+from bs4 import BeautifulSoup
+soup = BeautifulSoup("<p>Hello Insights!</p>")
+print(soup.prettify())
+```  
+
+
+#### Insights is running in the web browser and when connecting to a Kernel Gateway an error says "_Not able to add this connection. Try with a different URL or web socket or check if your gateway is running._"
+
+If you've followed the guide (and ran the selfsign.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
+
+
+
+#### My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?
+
+A fundamental way to troubleshoot this problem is confirm that all needed computers can talk to each other.   If you are running Insights in Enterprise this means each ArcGIS Server machine, plus your Kernel Gateway and personal computer must all be able to communicate with each other.   Insights Desktop entails less troubleshooting.  For Insights Desktop deployments, only the Kernel Gateway and your personal computer need to talk to each other.
+
+ Try getting the IP address of:
+ 
+ * Your personal computer machine
+ * Your kernel gateway machine
+ * Your ArcGIS Server machine(s) 
+ 
+ and then from each machine run the ```ping``` command to see if ping messages are received. 
+
+Tip:  On windows, run ```ipconfig``` and reference the Iv4 address to get the IP address.  On mac, run ```ipconfig getifaddr en0``` and note the address.  
+
+
+## Get Insights Desktop
+
+[Download Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download)
 
 
 ## Licensing
-Copyright 2019 Esri
+Copyright 2020 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -370,4 +277,3 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/quickstart-map-js/master/license.txt) file.
-

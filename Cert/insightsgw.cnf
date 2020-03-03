@@ -1,8 +1,0 @@
-[dn]
-CN=<host_name>.<domain>.com
-[req]
-distinguished_name=dn
-[EXT]
-subjectAltName=DNS:<host_name>.<domain>.com
-keyUsage=digitalSignature
-extendedKeyUsage=serverAuth

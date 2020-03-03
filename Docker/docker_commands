@@ -1,8 +1,0 @@
-# docker build container image
-docker build -t insightsgw .
-
-# docker run container image
-docker run -p 9999:9999 insightsgw
-
-# docker run container image with local PostgreSQL in Windows
-docker run -p 9999:9999 -e DB_PORT=5432 -e DB_HOST=docker.for.win.host.internal insightsgw

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>Library / Icons / 16px / Insert 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M4,0 L16,0 L16,4 L4,4 L4,0 Z M5,1 L5,3 L15,3 L15,1 L5,1 Z M4,7 L16,7 L16,11 L4,11 L4,7 Z M5,8 L5,10 L15,10 L15,8 L5,8 Z M4,12 L16,12 L16,16 L4,16 L4,12 Z M5,13 L5,15 L15,15 L15,13 L5,13 Z M2.90434356,5.71595566 L0.557526607,7.91054823 C0.429984683,8.02981726 0.223198367,8.02981726 0.095656443,7.91054823 C0.0344086512,7.85327323 0,7.77559166 0,7.69459257 L1.04425756e-15,3.30540743 C1.04425756e-15,3.13673556 0.146220006,3 0.326591525,3 C0.413208983,3 0.496278815,3.03217676 0.557526607,3.08945177 L2.90434356,5.28404434 C3.03188548,5.40331336 3.03188548,5.59668664 2.90434356,5.71595566 Z" id="path-1"></path>
+    </defs>
+    <g id="Library-/-Icons-/-16px-/-Insert-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Shape" fill="#4C4C4C" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="Library-/-Tints-/-White---#484848" mask="url(#mask-2)" fill="#484848">
+            <rect id="Tint---#484848" x="0" y="0" width="16" height="16"></rect>
+        </g>
+    </g>
+</svg>
