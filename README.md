@@ -104,46 +104,6 @@ _Note:_  This form needs the root URL of your Kernel Gateway.  For tips on choos
 Python and R scripting features are distributed across the app.  Shared scripts can be accessed from the _Add_ dialog, script  modules are accessed via the data pane and the editor console has many features.  Refer to this table for an overview of scripting tool. 
 
 
-<style>
-table {
-  font-family: BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th {
-  background-color: rgb(115,115,115);
-  color: #fff;
-  border: 1px solid #808080;
-  padding: 8px;
-}
-
-th:last-child {
-  text-align: left;
-}
-
-td {
-  border: 1px solid #808080;
-  padding: 8px;
-}
-
-td:first-child {
-  background-color: #A9A9A9;
-  width: 10%;
-  text-align: center;
-}
-
-td:nth-child(2) {
-  text-align: center;
-}
-
-td:last-child {
-  width: 70%;
-  text-align: left;
-}
-
-
-</style>
 <table>
   <tr>
     <th>Icon</th>
