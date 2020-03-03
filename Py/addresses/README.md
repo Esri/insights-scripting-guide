@@ -29,4 +29,4 @@ __Steps__
 3) Next find the layer named ```Layer``` in the _Data Pane_ and click the ellipse.  From the context menu select __Enable Location__.  Choose _Address_ and _Esri World Geocoder_.  Then click Run.
 
 
-4) Notice a new field _Location_ gets created in the layer.  This is a geometry field containing spatial data.  Next drag layer onto the canvas to create a Map (by dropping the layer in the _drop zone_ named _Map_).  Once the map is created you can visualise and style each  location and dive deeper into spatial and non-spatial analytics.
+4) Notice a new field _Location_ is created in the layer.  This is a geometry field.  Next drag the layer onto the canvas to create a Map (by dropping the layer in a _drop zone_ named _Map_).  Once the map is created you can visualise and style each location and dive deeper into spatial and non-spatial analytics.
