@@ -158,14 +158,6 @@ The console supports the following magic command.  This magic command must be pl
 | ```%insights_return(<data frame object>)```     | Converts Python or R data frames into Insights datasets.  When ```%insights_return(df)```  is run it will generate an Insights dataset from the ```df``` object.  Data will be persisted in the workbook (when the workbook is saved) and will appear in the data pane after execution.  |
 
 
-# What is ArcGIS Insights?
-
-Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Answer questions you didn’t know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
-
-* [Case studies and testimonials](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/overview)
-* [Product and analytical tool documentation](https://doc.arcgis.com/en/insights/)
-
-
 ## Deployment Patterns
 
 There are various configurations to choose from when planning a Jupyter Kernel Gateway with Insights.  It should be noted that some configurations may have tactical advantages over others.  Additionally, each configuration will offer different end user experiences and varying degrees of effort regarding setup and maintenance.
@@ -215,6 +207,13 @@ These conceptual diagrams were designed to help organizations visualize differen
 
 ![Cloud Kernel Gateway](diagrams/jkg-cloud-diagram.png)
 
+
+## What is ArcGIS Insights?
+
+Part of the Esri Geospatial Cloud, ArcGIS Insights is data analytics made for advanced location intelligence. Answer questions you didn’t know to ask, analyze data completely, and tell powerful data stories. Connect to your data directly, then use maps, charts, tables and reuseable models and scripts to perform basic to complex analyses that scale based on skill level and business need.
+
+* [Case studies and testimonials](https://www.esri.com/en-us/arcgis/products/insights-for-arcgis/overview)
+* [Product and analytical tool documentation](https://doc.arcgis.com/en/insights/)
 
 
 ## FAQs and Troubleshooting
