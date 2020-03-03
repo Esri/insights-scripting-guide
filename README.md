@@ -115,7 +115,7 @@ Python and R scripting features are distributed across the app.  Shared scripts 
 | ![Restart kernel](diagrams/restart.svg)| Restart kernel      |    Restarts the execution kernel within the Kernel Gateway.  Restarting stops running scripts and clears the namespace and any data held in memory.  |
 | ![Run](diagrams/run.svg)| Restart kernel      |    Run  | Runs script in active cell.
 | ![Run all](diagrams/run-all.svg)| Restart kernel      |    Run all  | Runs all scripts in active cell.
-| ![Switch connection](diagrams/switch-connections.svg)| Restart kernel      |    Enables connection changing from one Kernel Gateway to another.  |
+| ![Switch connection](diagrams/switch-connections.svg)| Restart kernel      |    Enables connection changing from one Kernel Gateway to another..  |
 
 
 <table>
