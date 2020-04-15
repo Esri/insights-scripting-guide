@@ -4,10 +4,10 @@
 The Script allows for an entire states counties to be processed in one go.  Alternatively, there is a commented out section that can be used to process many states to the county level.  In the former case, only county name is required for an individual state, in the latter case, both state name and county name fields will be required.
  
 1. Open Insights
-2. Import the Florida Shape File (attached zip file)
-3. Open the scripting console, connect to your Kernels
-4. Import the CHIME (file contained in the compressed folder attached)
-5. Using the data in the Florida Shape file DnD the following attributes to the first cell Line #495 before the comment
+2. Import the Florida Shapefile (attached zip file)
+3. Open the scripting console and connect to your Jupyter Kernel Gateway
+4. Import the _CHIME.ipynb_ into the scripting console
+5. Using the data in the Florida Shapefile DnD the following attributes to the first cell Line #495 before the comment
     1. Attributes: countyname, unacast_ch, hospitaliz, population, hospital_1
     2. Code before change: florida_df = #... ( DnD in front of the # sign)
     3. Code after change:  florida_df = FloridaCHIME ( 5 Fields)
@@ -20,3 +20,5 @@ Alternatively, you can use the “Create Relationship” feature to join the two
 10. Using the Geo-Enabled CHIME output, you can now have full interactivity between maps, charts, and tables against any of the supported types from the CHIME model
  
 An image of the finished product:
+
+![Insights Scripting w/ CHIME ](screenshot.png)
