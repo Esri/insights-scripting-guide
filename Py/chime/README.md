@@ -4,9 +4,9 @@ Penn Medicine’s Predictive Healthcare Team adapted the susceptible, infected, 
 
 The model uses a number of input parameters such as population size, percentage of infections, doubling time of the infection and, a additionally can include impacts of physical distancing measure such as stay-at-home directives.
 
-This implementation, for ArcGIS Insights, allows for modelling of a single region, in which one value is required for these fields (column names):
+This implementation, for ArcGIS Insights, allows for modelling of a single region, in which one value is required for these fields / column names:
 
-_Fields / Column Names_
+__Fields / Column Names__
 
 * Regional population
 * Hospital market share (%)
