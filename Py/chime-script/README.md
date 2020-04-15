@@ -6,7 +6,7 @@ The Script allows for an entire states counties to be processed in one go.  Alte
 1. Open Insights
 2. Import the Florida Shape File (attached zip file)
 3. Open the scripting console, connect to your Kernels
-4. Import the Insights CHIME Script v4.ipbynb file (file contained in the compressed folder attached)
+4. Import the CHIME (file contained in the compressed folder attached)
 5. Using the data in the Florida Shape file DnD the following attributes to the first cell Line #495 before the comment
     1. Attributes: countyname, unacast_ch, hospitaliz, population, hospital_1
     2. Code before change: florida_df = #... ( DnD in front of the # sign)
