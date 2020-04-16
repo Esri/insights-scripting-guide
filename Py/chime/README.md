@@ -19,7 +19,7 @@ This script can also be used to model multiple regions at once, for example, all
 If you don't have ArcGIS Insights, you can download Insights Desktop [here](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download).  
  
 1. Open Insights and create a new workbook
-2. Use the_Add_ button and upload a (geojson or shapefile) containing county boundries, county name and required epidemics model fields (ie. population, patients, doubling time and hospital market share fields.
+2. Use the __Add__ button and upload a (geojson or shapefile) containing county boundries, county name and required epidemics model fields (ie. population, patients, doubling time and hospital market share fields.
 3. Rename the uploaded dataset to FloridaCHIME
 4. Open the scripting console and make a Jupyter Kernel Gateway connection
 5. Import _CHIME.ipynb_ into the scripting console
