@@ -34,7 +34,7 @@ If you don't have ArcGIS Insights, you can download Insights Desktop [here](http
 8. Next execute cell 3
     1. This cell uses the magic command to load the merged dataset into Insights, ie ``` %insights_return(county_run_df) ```
 9. After cell 3 executes a new layer will be added to the data pane, named "Layer".  Rename _Layer_ to _Chime Estimates_.
-10. Optional - If your workbook includes a spatial layer containing county names _(ie. County_Name)_, enable location on _Chime Estimates_, by clicking the ellipse and selecting __Enable Location__.  With the enable location dialog open, select your spatial layer and choose the __County_Name__ field to match. 
+10. Optional - If your workbook includes a spatial layer containing county names _(ie. County_Name)_, enable location on _Chime Estimates_, by clicking the ellipse and selecting __Enable Location__.  With the enable location dialog open, select your spatial layer and choose the _County_Name_ field to match. 
 11. Next drag data fields from the data pane to the canvas to create interactive maps, charts, and tables
 
 
