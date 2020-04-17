@@ -4,7 +4,7 @@ Penn Medicine’s Predictive Healthcare Team adapted the susceptible, infected, 
 
 The model uses a number of input parameters such as population size, percentage of infections, doubling time of the infection and, additionally can include impacts of physical distancing measure such as stay-at-home directives.
 
-This implementation, for ArcGIS Insights, allows for modelling of a single region, in which one value is required for these fields / column names:
+This implementation, for ArcGIS Insights, allows for modelling of a single region, in which one value is required for these fields:
 
 ### Fields / Column Names
 
@@ -29,13 +29,13 @@ If you don't have ArcGIS Insights, you can download Insights Desktop [here](http
 3. Rename the uploaded dataset using CHIME as a suffex, ie. DataSet_CHIME
 4. Open the scripting console and make a Jupyter Kernel Gateway connection
 5. Import _CHIME.ipynb_ into the scripting console
-6. Using the data in the DataSet_CHIME select these fields from the data pane _countyname, unacast_ch, hospitaliz, population, hospital_1_ and drag and drop them into the second cell, setting the variable named __chime_df__
+6. Using the data in the DataSet_CHIME select these fields _countyname, unacast_ch, hospitaliz, population, hospital_1_ from the data pane and drag them into the second cell, setting the variable named __chime_df__
 7. Once step 5 is complete, run cell 1 and 2 to completion
 8. Next execute cell 3
     1. This cell uses the magic command to load the merged dataset into Insights, ie ``` %insights_return(county_run_df) ```
 9. After cell 3 executes a new layer will be added to the data pane, named "Layer".  Rename _Layer_ to _Chime Estimates_.
-10. Optional - If your workbook includes a spatial layer containing county names _(ie. County_Name)_, enable location on _Chime Estimates_, by clicking the ellipse and selecting _Enable Location_.  With the enable location dialog open, select your spatial layer and choose the __County_Name__ field to match. 
-11. Next drag and drop data fields from the data pane to the canvas to create interactive maps, charts, and tables
+10. Optional - If your workbook includes a spatial layer containing county names _(ie. County_Name)_, enable location on _Chime Estimates_, by clicking the ellipse and selecting __Enable Location__.  With the enable location dialog open, select your spatial layer and choose the __County_Name__ field to match. 
+11. Next drag data fields from the data pane to the canvas to create interactive maps, charts, and tables
 
 
 Please log an issue, if you need assistance using this script or would like to offer feedback on how to make this resource more useful for people working in the front lines of epidemics.
