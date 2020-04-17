@@ -8,27 +8,33 @@ This implementation, for ArcGIS Insights, allows for modelling of a single regio
 
 __Fields / Column Names__
 
-* Regional population
-* Hospital market share (%)
-* Currently hospitalized COVID-19 patients
-* Doubling time in days
+| FIELD NAME           | DESCRIPTION   |
+| ---------------------|:-------------:|
+| countyname      | County name        |
+| unacast_ch      | Doubling time in days (Contact Rate)                 |
+| hospitaliz      | Currently hospitalized COVID-19 patients                 |
+| population      | Regional population         |
+| hospital_1      | Hospital market share (%)                |
+
+
 * Implementing physical distancing and start date is optional
+
 
 This script can also be used to model multiple regions at once, for example, all counties in a state (see, cells 4 and 5).  
 
 If you don't have ArcGIS Insights, you can download Insights Desktop [here](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download).  
  
 1. Open Insights and create a new workbook
-2. Use the __Add__ button and upload a geojson or shapefile containing county boundries, county name and required epidemics model fields _(ie. population, patients, doubling time and hospital market share fields)_.
-3. Rename the uploaded dataset using CHIME as a suffex, ie. FloridaCHIME
+2. Use the __Add__ button to upload a CSV containing the required fields and data
+3. Rename the uploaded dataset using CHIME as a suffex, ie. DataSet_CHIME
 4. Open the scripting console and make a Jupyter Kernel Gateway connection
 5. Import _CHIME.ipynb_ into the scripting console
-6. Using the data in the FloridaCHIME drag and drop the epidemics model fields into the second cell (setting the variable named __florida_df__)
+6. Using the data in the DataSet_CHIME drag and drop the epidemics model fields into the second cell (setting the variable named __florida_df__)
 7. Once step 5 is complete, run cell 1 and 2 to completion
 8. Next execute cell 3
     1. This cell uses the magic command to load the merged dataset into Insights, ie ``` %insights_return(county_run_df) ```
-9. After cell 3 executes a new layer will be added to the data pane, named "Layer".  Rename _Layer_ to _Florida Estimates_.
-10. Next enable location on _Florida Estimates_, by clicking the ellipse and selecting _Enable Location_.  With the enable location dialog open, select FloridaCHIME and choose the __County Name__ field to match. 
+9. After cell 3 executes a new layer will be added to the data pane, named "Layer".  Rename _Layer_ to _Chime Estimates_.
+10. Optional - If your workbook includes a spatial layer containing county names _(ie. County_Name)_, enable location on _Chime Estimates_, by clicking the ellipse and selecting _Enable Location_.  With the enable location dialog open, select your spatial layer and choose the __County_Name__ field to match. 
 11. Next drag and drop data fields from the data pane to the canvas to create interactive maps, charts, and tables
 
 
