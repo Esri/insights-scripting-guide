@@ -41,6 +41,6 @@ If you don't have ArcGIS Insights, you can download Insights Desktop [here](http
 Please log an issue, if you need assistance using this script or would like to offer feedback on how to make this resource more useful for people working in the front lines of epidemics.
 
  
-__Result image__
+__Example workbook with CHIME Estimates__
 
 ![Insights Scripting w/ CHIME ](screenshot.png)
