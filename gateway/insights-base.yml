@@ -1,6 +1,6 @@
 name: insights-base
 channels:
-  - defaults
+  - conda-forge
   - esri
 dependencies:
   - python=3.7
@@ -11,7 +11,7 @@ dependencies:
   - requests
   - msgpack-python
   - matplotlib
-  - geopandas
+  - geopandas=0.7
   - arcgis
   - r-itertools
   - r-essentials
