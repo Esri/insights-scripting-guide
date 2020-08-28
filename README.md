@@ -117,7 +117,6 @@ Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address
 
 <sup>2</sup> If using port 443, the connection url will look like this ``` https://pickle.esri.com ```.
 
-_Note:_  You cannot access this feature on the versions of Safari >= 13.1 due to a known limitation in the kernel gateway. The issue has been logged [here](https://github.com/jupyter/kernel_gateway/issues/339)
 
 ## General Features
 

@@ -4,14 +4,16 @@ channels:
   - esri
 dependencies:
   - python=3.7
-  - jupyter_kernel_gateway=2.1.0
+  - jupyter_kernel_gateway
   - pandas
   - numpy
   - shapely
   - requests
   - msgpack-python
   - matplotlib
-  - geopandas=0.7
+  - geopandas
   - arcgis
   - r-itertools
   - r-essentials
+  - pyspark
+  - koalas
