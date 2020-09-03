@@ -1,7 +1,7 @@
-# This yaml file is for the versions <= 2020.1
+# This yaml file is for the 2020.2 version
 name: insights-base
 channels:
-  - defaults
+  - conda-forge
   - esri
 dependencies:
   - python=3.7
