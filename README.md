@@ -29,17 +29,18 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
 
 1) Install [Anaconda v3.7](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
-3) Copy ```selfsign.py``` and ```insights-base.yml``` into ```gateway``` folder
-4) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
-5) Run below commands
+3) Copy ```selfsign.py``` into ```gateway``` folder
+4) Depending on the insights version copy the appropriate ```.yml``` file into the ```gateway``` folder. For example: If you are using Insights 2020.2 copy ```insights-base-latest.yml```
+5) Open _Anaconda's command promt_ and CD into the ```gateway``` folder
+6) Run below commands
 
     ```shell
-    conda env create -f insights-base.yml
+    conda env create -f insights-base-latest.yml
     conda activate insights-base
     python selfsign.py
     ```
 
-6) Start the Kernel Gateway:
+7) Start the Kernel Gateway:
 
 * Run this command if using __Insights in ArcGIS Enterprise__
 
@@ -53,7 +54,7 @@ Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which i
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
-7) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
+8) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
 
 
 
