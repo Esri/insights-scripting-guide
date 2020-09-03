@@ -1,3 +1,4 @@
+# This yaml file is for the upcoming 2020.3 release version. Please refrain from using this.
 name: insights-base
 channels:
   - conda-forge
