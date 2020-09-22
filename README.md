@@ -16,7 +16,7 @@ You can access an archived version of this documentation [here](README_OLD.md).
 
 ## Setup Kernel Gateway 
 
-Insights supports connections to Jupyter's Kernel Gateway version 2.1.0, which is an open source web server distributed through ```conda-forge``` and other repository channels.    To setup a Kernel Gateway, with the required dependencies choose one of the following deployment sections.
+Insights supports connections to Jupyter's Kernel Gateway, which is an open source web server distributed through ```conda-forge``` and other repository channels.    To setup a Kernel Gateway, with the required dependencies choose one of the following deployment sections.
 
 * [Deploy with Anaconda](#Deploy-with-Anaconda)
 * [Deploy with Docker](#Deploy-with-Docker)
