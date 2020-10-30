@@ -118,6 +118,7 @@ Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address
 
 <sup>2</sup> If using port 443, the connection url will look like this ``` https://pickle.esri.com ```.
 
+_Note:_ In Chrome, when trying to access the gateway url, it will give you a "Your connection is not private" warning. Click somewhere on the page and then blindly type the word `thisisunsafe`. This will instantly bypass the warning.
 
 ## General Features
 
