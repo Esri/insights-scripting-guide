@@ -7,9 +7,11 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 
 * ArcGIS Insights (version 2020.x)
 * Anaconda (with Python version 3.7)
-* See needed Python and R [dependencies](gateway/insights-base.yml) 
+* See needed Python and R [dependencies](gateway/insights-base-latest.yml) 
 
-_Note: Scripting is not supported in Insights running in ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections, ArcGIS Enterprise connections, database and scripting features._ 
+_Note: Scripting is not supported in Insights running in ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections, ArcGIS Enterprise connections, database and scripting features._
+
+_Note: Plots created with pandas i.e., pandas.DataFrame.plot() are not displayed in the cards when added to a script model._
 
 You can access an archived version of this documentation [here](README_OLD.md).
 
