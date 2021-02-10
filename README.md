@@ -32,7 +32,7 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
 1) Install [Anaconda](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
 3) Copy ```selfsign.py``` into ```gateway``` folder
-4) Depending on your Insights version, copy the appropriate ```.yml``` file into the ```gateway``` folder. For example: If you are using Insights 2020.2, copy ```insights-base-latest.yml```
+4) Depending on your Insights version, copy the appropriate ```.yml``` file into the ```gateway``` folder. For example: If you are using Insights 2020.2 or above, copy ```insights-base-latest.yml```
 5) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder
 6) Run below commands
 
