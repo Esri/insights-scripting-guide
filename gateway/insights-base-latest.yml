@@ -1,4 +1,4 @@
-# This yaml file is for the 2020.2 version
+# This yaml file is for the 2020.2+ versions
 name: insights-base
 channels:
   - conda-forge
