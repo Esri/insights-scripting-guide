@@ -37,7 +37,7 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
 6) Run below commands
 
     ```shell
-    conda env create -f insights-base-latest.yml
+    conda env create -f insights-base.yml
     conda activate insights-base
     python selfsign.py
     ```
