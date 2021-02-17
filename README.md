@@ -244,6 +244,10 @@ print(soup.prettify())
 If you've followed the guide (and ran the selfsign.py file), you have created a self signed SSL certificate. It may be possible that Insights cannot make a connection because the web browser itself does not trust the certificate. To work around this problem open the kernel gateway URL in the web browser and accept the browser warning. Then try connecting again.
 
 
+#### WebSocket connection to gateway url failed: Error during WebSocket handshake: Incorrect 'Sec-WebSocket-Accept' header value?
+
+This error can occur on a windows machine and when this happens, you will see an indefinite progress spinner in the scripting environment. This error can be found in the browser console and can be resolved by installing Websockets on IIS. Go to the Server Manager > Manage > Add Roles and Features > Server Roles > Web Server > Application Development > WebSocket Protocol. Make sure this is checked. Refer: [Link](https://github.com/aspnet/SignalR/issues/1585#issuecomment-373049766)
+
 
 #### My Kernel Gateway is on a different machine and I am having trouble making a connection using Insights?
 
@@ -259,6 +263,11 @@ A fundamental way to troubleshoot this problem is confirm that all needed comput
 
 Tip:  On windows, run ```ipconfig``` and reference the Iv4 address to get the IP address.  On mac, run ```ipconfig getifaddr en0``` and note the address.  
 
+#### Seeing any other setup or connection issues?
+
+If you encounter any issue which you are unable to troubleshoot, please open your developer tools and see if there are any error messages in the console and create an issue on the repo with the error message. We will get back to you as soon as possible with a possible solution. 
+
+Tip: To open Developer tools of the web browsers, use ```Shift + Ctrl + I``` on Windows and ```Option + Cmd + I``` on Mac.
 
 ## Get Insights Desktop
 
