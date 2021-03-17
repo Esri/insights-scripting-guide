@@ -1,0 +1,16 @@
+name: insights-primer
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - geopandas
+  - msgpack-python
+  - arcgis
+  - pandas
+  - shapely
+  - requests
+  - jupyter_kernel_gateway
+  - numpy
+  - python=3.7
+  - libpysal
+  - esda
