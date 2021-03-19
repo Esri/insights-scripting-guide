@@ -8,8 +8,7 @@ This repository contains the Python code samples used in the ESRI blog *A primer
 - Working knowledge of Python, and the Python libraries Pandas and Geopandas
 
 ## Repository content
-    -`rest_api.py`
-    
+- `rest_api.py`
     -`config.py` (replace the key with your personal API key)
     -`census_tracts_poly.zip` Cleaned census tract shapefile
     -`morans_i.py`
