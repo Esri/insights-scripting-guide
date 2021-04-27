@@ -58,7 +58,7 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
 
 8) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
 
-
+_Note:_ If you would like to access your data in the scripting environment, create a ```data``` folder within ```gateway``` folder and put your files in it. Then, activate your conda environment after CD'ng into the ```data``` folder and run the appropriate gateway command to start the gateway.
 
 ### Deploy with Docker
 
