@@ -34,7 +34,7 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
 3) Copy ```selfsign.py``` into ```gateway``` folder
 4) Copy the ```.yml``` file into the ```gateway``` folder.
 5) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder
-6) Run below commands
+6) Run below commands if you are using ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions
 
     ```shell
     conda env create -f insights-base.yml
@@ -42,7 +42,15 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
     python selfsign.py
     ```
 
-7) Start the Kernel Gateway:
+7) Run below commands if you are using ArcGIS Insights 2021.2
+
+    ```shell
+    conda env create -f insights-latest.yml
+    conda activate insights-latest
+    python selfsign.py
+    ```
+
+8) Start the Kernel Gateway:
 
 * Run this command if using __Insights in ArcGIS Enterprise__
 

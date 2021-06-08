@@ -1,5 +1,5 @@
-# This yaml file is for the 2020.2, 2020.3 and 2021.1 versions
-name: insights-base
+# This yaml file is for the 2021.2 version.
+name: insights-latest
 channels:
   - conda-forge
   - esri
@@ -16,3 +16,5 @@ dependencies:
   - arcgis
   - r-itertools
   - r-essentials
+  - pyspark
+  - koalas
