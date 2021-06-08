@@ -7,7 +7,7 @@ This guide offers a reference for creating custom features in ArcGIS Insights us
 
 * ArcGIS Insights (version 2020.x)
 * Anaconda (with Python version 3.7)
-* See needed Python and R [dependencies](gateway/insights-base-latest.yml) 
+* See needed Python and R [dependencies](gateway/insights-base.yml) 
 
 _Note: Scripting is not supported in Insights running in ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections, ArcGIS Enterprise connections, database and scripting features._
 
@@ -34,7 +34,7 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
 3) Copy ```selfsign.py``` into ```gateway``` folder
 4) Copy the ```.yml``` file into the ```gateway``` folder.
 5) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder
-6) Run below commands if you are using ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions
+6) Run below commands if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
 
     ```shell
     conda env create -f insights-base.yml
@@ -42,7 +42,7 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
     python selfsign.py
     ```
 
-7) Run below commands if you are using ArcGIS Insights 2021.2
+7) Run below commands if you are using __ArcGIS Insights 2021.2__
 
     ```shell
     conda env create -f insights-latest.yml
