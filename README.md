@@ -64,7 +64,9 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
-8) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
+9) Open the kernel gateway url in the browser before using it to connect in the Insights web application.
+
+10) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
 
 _Note:_ If you would like to access your data in the scripting environment, create a ```data``` folder within ```gateway``` folder and put your files in it. Then, activate your conda environment after CD'ng into the ```data``` folder and run the appropriate gateway command to start the gateway.
 
