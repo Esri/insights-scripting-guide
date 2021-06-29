@@ -64,7 +64,7 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
-9) Open the kernel gateway url in the browser before using it to connect in the Insights web application.
+9) Open the kernel gateway url in the browser before using it to connect in the Insights web application. For example: If you are using Insights in Chrome, open the gateway url in a new tab in Chrome, and bypass the security exceptions. Similarly, if you are using Insights in Safari or Firefox, open the gateway url and bypass the security exceptions.
 
 10) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
 
@@ -128,7 +128,7 @@ Urls may be HTTP or HTTPS.  Hosts can be referenced in numerous ways, IP address
 
 <sup>1</sup> Insights Desktop can make connections to HTTPS Kernel Gateway endpoints, if the Kernel Gateway uses a domain or a certificate authority certificate.
 
-<sup>2</sup> If using port 443, the connection url will look like this ``` https://pickle.esri.com ```.
+<sup>2</sup> If using port 443, the connection url will look like this ``` https://pickle.esri.com ```. Here ```pickle``` is the machine name.
 
 _Note:_ In Chrome, when trying to access the gateway url, it will give you a "Your connection is not private" warning. Click somewhere on the page and then blindly type the word `thisisunsafe`. This will instantly bypass the warning.
 
