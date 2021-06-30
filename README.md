@@ -1,6 +1,8 @@
 # Insights Scripting Guide
 
 This guide offers a reference for creating custom features in ArcGIS Insights using Python and R.  It is the definitive guide for Insights scripting topics and a resource for implementing Jupyter's Kernel Gateway.
+
+Check out the wiki [here](https://github.com/Esri/insights-scripting-guide/wiki)
  
 
 ## Prerequisites
