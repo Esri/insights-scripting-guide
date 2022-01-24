@@ -30,13 +30,14 @@ Insights supports connections to Jupyter's Kernel Gateway, which is an open sour
 
 ### Deploy with Anaconda
 
+_Note:_ If you have already created the conda environment, please skip to this section [here](#Starting-the-kernel-gateway) 
 
 1) Install [Anaconda](https://www.anaconda.com/distribution/#download-section)
 2) Create a folder named ```gateway```
 3) Copy ```selfsign.py``` into ```gateway``` folder
 4) Copy the ```.yml``` file into the ```gateway``` folder.
 5) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder
-6) Run below commands if you are using __ArcGIS Insights 2021.2__
+6) Run below commands if you are using __ArcGIS Insights 2021.2 or above versions__
 
     ```shell
     conda env create -f insights-latest.yml
@@ -99,6 +100,36 @@ _Note:_ If you would like to access your data (.csv,.xls, etc.,) in the scriptin
     ```
 
 
+## Starting the kernel gateway
+
+_Note:_ If you haven't created a conda environment. Please refer to the instructions [here](#Deploy-with-Anaconda)
+
+1) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder.
+2) Run below command if you are using __ArcGIS Insights 2021.2 or above versions__
+ 
+    ```shell
+    conda activate insights-latest
+    ```
+
+3) Run below command if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
+
+    ```shell
+    conda activate insights-base
+    ```
+
+4) Start the Kernel Gateway:
+
+* Run this command if using __Insights in ArcGIS Enterprise__
+
+    ```shell
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
+    ```
+
+* Run this command if using __Insights Desktop__
+
+    ```shell
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
+    ```
 
 ## Create a connection
 
