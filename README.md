@@ -67,11 +67,13 @@ _Note:_ If you have already created the conda environment, please skip to this s
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
     ```
 
-9) Open the kernel gateway url in the browser before using it to connect in the Insights web application. For example: If you are using Insights in Chrome, open the gateway url in a new tab in Chrome, and bypass the security exceptions. Similarly, if you are using Insights in Safari or Firefox, open the gateway url and bypass the security exceptions.
+9) Open the kernel gateway url in the browser before using it to connect in the Insights web application. For example: If you are using Insights in Chrome, open the gateway url in a new tab in Chrome, and bypass the security exceptions. Similarly, if you are using Insights in Safari or Firefox, open the gateway url and bypass the security exceptions. For more detailed instructions on bypassing security exceptions, please refer [wiki](https://github.com/Esri/insights-scripting-guide/wiki/Bypassing-security-exceptions)
 
-10) Do not close the Anaconda prompt or the terminal window after starting the kernel gateway. Just minimize it. Closing the window will kill the kernel gateway.
+10) When you open the gateway url (ex: https://pickle.esri.com:9999), you will see a JSON response as ```{"reason": "Not Found", "message": ""}```. This is a valid message and it indicates that our kernel is up and running and it is ready to use within Insights. This message is just a default swagger-api's response. If you are interested in more detailed response regarding the kernel, you can navigate to ```api/kernelspecs``` page (ex: https://pickle.esri.com:9999/api/kernelspecs)
 
-11) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window
+11) Do not close the Anaconda prompt or the terminal window after starting the kernel gateway. Just minimize it. Closing the window will kill the kernel gateway.
+
+12) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window.
 
 _Note:_ If you would like to access your data (.csv,.xls, etc.,) in the scripting environment, create a ```data``` folder within ```gateway``` folder and put your files in it. Then, activate your conda environment after CD'ng into the ```data``` folder and run the appropriate gateway command to start the gateway.
 
