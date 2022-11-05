@@ -2,7 +2,6 @@
 name: insights-latest
 channels:
   - conda-forge
-  - esri
 dependencies:
   - python=3.7
   - jupyter_kernel_gateway
@@ -13,7 +12,6 @@ dependencies:
   - msgpack-python
   - matplotlib
   - geopandas
-  - arcgis
   - r-itertools
   - r-essentials
   - pyspark
