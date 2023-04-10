@@ -7,9 +7,9 @@ Check out the wiki [here](https://github.com/Esri/insights-scripting-guide/wiki)
 
 ## Prerequisites
 
-* ArcGIS Insights (version 2020.x)
-* Anaconda (with Python version 3.7)
-* See needed Python and R [dependencies](gateway/insights-base.yml) 
+* ArcGIS Insights (version 2020.x or above). Refer [readme](gateway/README.md) for details on versions.
+* Anaconda (with Python version 3.7 or above)
+* See needed Python and R [dependencies](gateway/insights-latest.yml)
 
 _Note: Scripting is not supported in Insights running in ArcGIS Online.  Please download [Insights Desktop](https://www.esri.com/en-us/arcgis/products/arcgis-insights/resources/desktop-client-download) for this instead, which supports ArcGIS Online connections, ArcGIS Enterprise connections, database and scripting features._
 
@@ -37,7 +37,7 @@ _Note:_ If you have already created the conda environment, please skip to this s
 3) Copy ```selfsign.py``` into ```gateway``` folder
 4) Copy the ```.yml``` file into the ```gateway``` folder.
 5) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder
-6) Run below commands if you are using __ArcGIS Insights 2021.2 or above versions__
+6) Run below commands if you are using __ArcGIS Insights 2023.1__
 
     ```shell
     conda env create -f insights-latest.yml
@@ -45,7 +45,15 @@ _Note:_ If you have already created the conda environment, please skip to this s
     python selfsign.py
     ```
 
-7) Run below commands if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
+7) Run below commands if you are using __ArcGIS Insights 2021.2, 2021.3, 2022.1, 2022.2, 2022.3 versions__
+
+    ```shell
+    conda env create -f insights-2022.yml
+    conda activate insights-2022
+    python selfsign.py
+    ```
+
+8) Run below commands if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
 
     ```shell
     conda env create -f insights-base.yml
@@ -53,27 +61,27 @@ _Note:_ If you have already created the conda environment, please skip to this s
     python selfsign.py
     ```
 
-8) Start the Kernel Gateway:
+9) Start the Kernel Gateway:
 
 * Run this command if using __Insights in ArcGIS Enterprise__
 
     ```shell
-    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
     ```
 
 * Run this command if using __Insights Desktop__
 
     ```shell
-    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True
+    jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
     ```
 
-9) Open the kernel gateway url in the browser before using it to connect in the Insights web application. For example: If you are using Insights in Chrome, open the gateway url in a new tab in Chrome, and bypass the security exceptions. Similarly, if you are using Insights in Safari or Firefox, open the gateway url and bypass the security exceptions. For more detailed instructions on bypassing security exceptions, please refer [wiki](https://github.com/Esri/insights-scripting-guide/wiki/Bypassing-security-exceptions)
+10) Open the kernel gateway url in the browser before using it to connect in the Insights web application. For example: If you are using Insights in Chrome, open the gateway url in a new tab in Chrome, and bypass the security exceptions. Similarly, if you are using Insights in Safari or Firefox, open the gateway url and bypass the security exceptions. For more detailed instructions on bypassing security exceptions, please refer [wiki](https://github.com/Esri/insights-scripting-guide/wiki/Bypassing-security-exceptions)
 
-10) When you open the gateway url (ex: https://pickle.esri.com:9999), you will see a JSON response as ```{"reason": "Not Found", "message": ""}```. This is a valid message and it indicates that our kernel is up and running and it is ready to use within Insights. This message is just a default swagger-api's response. If you are interested in more detailed response regarding the kernel, you can navigate to ```api/kernelspecs``` page (ex: https://pickle.esri.com:9999/api/kernelspecs)
+11) When you open the gateway url (ex: https://pickle.esri.com:9999), you will see a JSON response as ```{"reason": "Not Found", "message": ""}```. This is a valid message and it indicates that our kernel is up and running and it is ready to use within Insights. This message is just a default swagger-api's response. If you are interested in more detailed response regarding the kernel, you can navigate to ```api/kernelspecs``` page (ex: https://pickle.esri.com:9999/api/kernelspecs)
 
-11) Do not close the Anaconda prompt or the terminal window after starting the kernel gateway. Just minimize it. Closing the window will kill the kernel gateway.
+12) Do not close the Anaconda prompt or the terminal window after starting the kernel gateway. Just minimize it. Closing the window will kill the kernel gateway.
 
-12) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window.
+13) _Optional:_  Stop Kernel Gateway by pressing _Control-C_ in the running window or close the window.
 
 _Note:_ If you would like to access your data (.csv,.xls, etc.,) in the scripting environment, create a ```data``` folder within ```gateway``` folder and put your files in it. Then, activate your conda environment after CD'ng into the ```data``` folder and run the appropriate gateway command to start the gateway.
 
