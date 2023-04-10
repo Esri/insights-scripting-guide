@@ -37,7 +37,7 @@ _Note:_ If you have already created the conda environment, please skip to this s
 3) Copy ```selfsign.py``` into ```gateway``` folder
 4) Copy the ```.yml``` file into the ```gateway``` folder.
 5) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder
-6) Run below commands if you are using __ArcGIS Insights 2023.1__
+6) Run the following commands if you are using __ArcGIS Insights 2023.1__
 
     ```shell
     conda env create -f insights-latest.yml
@@ -47,7 +47,7 @@ _Note:_ If you have already created the conda environment, please skip to this s
 
 _Note:_ If the process of creating a conda environment is taking too long, please follow these instructions to create the environment [here](#alternative-method-to-create-a-conda-environment)
 
-7) Run below commands if you are using __ArcGIS Insights 2021.2, 2021.3, 2022.1, 2022.2, 2022.3 versions__
+7) Run the following commands if you are using __ArcGIS Insights 2021.2, 2021.3, 2022.1, 2022.2, 2022.3 versions__
 
     ```shell
     conda env create -f insights-2022.yml
@@ -55,7 +55,7 @@ _Note:_ If the process of creating a conda environment is taking too long, pleas
     python selfsign.py
     ```
 
-8) Run below commands if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
+8) Run the following commands if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
 
     ```shell
     conda env create -f insights-base.yml
@@ -65,13 +65,13 @@ _Note:_ If the process of creating a conda environment is taking too long, pleas
 
 9) Start the Kernel Gateway:
 
-* Run this command if using __Insights in ArcGIS Enterprise__
+* Run the following command if using __Insights in ArcGIS Enterprise__
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
     ```
 
-* Run this command if using __Insights Desktop__
+* Run the following command if using __Insights Desktop__
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
@@ -99,7 +99,7 @@ _Note:_ If you would like to access your data (.csv,.xls, etc.,) in the scriptin
     ```
 
 5) Create a ```data``` folder within ```gateway``` and put your data files there
-6) Run this command to create the Kernel Gateway Docker image
+6) Run the following command to create the Kernel Gateway Docker image
 
     ```shell
     docker build -t insights-gateway .
@@ -118,70 +118,70 @@ In some cases, creating a conda environment using a yml file takes a long time, 
 1) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder.
 2) Creating a new environment and installing dependencies:
 
-* Run the below commands if you are using __ArcGIS Insights 2023.1 version__
+* Run the following commands if you are using __ArcGIS Insights 2023.1 version__
  
     ```shell
-        # This creates a new environment with name `insights-latest` with Python 3.9.14.
-        conda create -n insights-latest -c conda-forge python=3.9.14
+    # This creates a new environment with name `insights-latest` with Python 3.9.14.
+    conda create -n insights-latest -c conda-forge python=3.9.14
     ```
 
     ```shell
-        # Activate the insights-latest environment.
-        conda activate insights-latest
+    # Activate the insights-latest environment.
+    conda activate insights-latest
     ```
 
     ```shell
-        # Install the packages from conda-forge channel.
-        conda install -c conda-forge jupyter_kernel_gateway=2.5.1 pandas=1.5.1 shapely=1.8.5 msgpack-python=1.0.4 matplotlib
-        conda install -c conda-forge geopandas=0.11.1
-        conda install -c conda-forge pyspark=3.3.1
-        # You can skip the following if you don't need or use R kernel.
-        conda install -c conda-forge r-itertools
-        conda install -c conda-forge r-essentials
+    # Install the packages from conda-forge channel.
+    conda install -c conda-forge jupyter_kernel_gateway=2.5.1 pandas=1.5.1 shapely=1.8.5 msgpack-python=1.0.4 matplotlib
+    conda install -c conda-forge geopandas=0.11.1
+    conda install -c conda-forge pyspark=3.3.1
+    # You can skip the following if you don't need R kernel.
+    conda install -c conda-forge r-itertools
+    conda install -c conda-forge r-essentials
     ```
 
     ```shell
-        # This creates certificates in the gateway folder.
-        python selfsign.py
+    # This creates certificates in the gateway folder.
+    python selfsign.py
     ```
 
-* Run below command if you are using __ArcGIS Insights 2021.2, 2021.3, 2022.1, 2022.2, 2022.3 versions__
+* Run the following commands if you are using __ArcGIS Insights 2021.2, 2021.3, 2022.1, 2022.2, 2022.3 versions__
  
     ```shell
-        # This creates a new environment with name `insights-2022` with Python 3.7.12.
-        conda create -n insights-2022 -c conda-forge python=3.7.12
+    # This creates a new environment with name `insights-2022` with Python 3.7.12.
+    conda create -n insights-2022 -c conda-forge python=3.7.12
     ```
 
     ```shell
-        # Activate the insights-2022 environment.
-        conda activate insights-2022
+    # Activate the insights-2022 environment.
+    conda activate insights-2022
     ```
 
     ```shell
-        # Install the packages from conda-forge channel.
-        conda install -c conda-forge jupyter_kernel_gateway=2.5.1 pandas=1.5.1 shapely=1.8.5 msgpack-python=1.0.4 matplotlib
-        conda install -c conda-forge geopandas
-        conda install -c conda-forge pyspark=3.1.0
-        # You can skip the following if you don't need or use R kernel.
-        conda install -c conda-forge r-itertools
-        conda install -c conda-forge r-essentials
+    # Install the packages from conda-forge channel.
+    conda install -c conda-forge jupyter_kernel_gateway=2.5.1 pandas=1.5.1 shapely=1.8.5 msgpack-python=1.0.4 matplotlib
+    conda install -c conda-forge geopandas
+    conda install -c conda-forge pyspark=3.1.0
+    # You can skip the following if you don't need R kernel.
+    conda install -c conda-forge r-itertools
+    conda install -c conda-forge r-essentials
     ```
 
     ```shell
-        # This creates certificates in the gateway folder.
-        python selfsign.py
+    # This creates certificates in the gateway folder.
+    python selfsign.py
     ```
 
 3) Start the kernel gateway:
 
-* Run this command if using __Insights in ArcGIS Enterprise__
+* Run the following command if using __Insights in ArcGIS Enterprise__
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
     --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
     ```
 
-* Run this command if using __Insights Desktop__
+* Run the following command if using __Insights Desktop__
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
@@ -195,19 +195,19 @@ _Note:_ If you haven't created a conda environment. Please refer to the instruct
 1) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder.
 2) Activate the conda environment:
 
-* Run below command if you are using __ArcGIS Insights 2023.1 version__
+* Run the following command if you are using __ArcGIS Insights 2023.1 version__
  
     ```shell
     conda activate insights-latest
     ```
 
-* Run below command if you are using __ArcGIS Insights 2021.2, 2021.3, 2022.1, 2022.2, 2022.3 versions__
+* Run the following command if you are using __ArcGIS Insights 2021.2, 2021.3, 2022.1, 2022.2, 2022.3 versions__
  
     ```shell
     conda activate insights-2022
     ```
 
-* Run below command if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
+* Run the following command if you are using __ArcGIS Insights 2020.2, 2020.3 or 2021.1 versions__
 
     ```shell
     conda activate insights-base
@@ -215,14 +215,14 @@ _Note:_ If you haven't created a conda environment. Please refer to the instruct
 
 3) Start the Kernel Gateway:
 
-* Run this command if using __Insights in ArcGIS Enterprise__
+* Run the following command if using __Insights in ArcGIS Enterprise__
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key
     --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
     ```
 
-* Run this command if using __Insights Desktop__
+* Run the following command if using __Insights Desktop__
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
