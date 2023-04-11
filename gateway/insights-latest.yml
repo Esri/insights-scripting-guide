@@ -1,18 +1,16 @@
-# This yaml file is for the 2021.2 or above versions.
+# This yaml file is used for the ArcGIS Insights 2023.1 version.
 name: insights-latest
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
-  - jupyter_kernel_gateway
-  - pandas
-  - numpy
-  - shapely
+  - python=3.9
+  - jupyter_kernel_gateway=2.5.1
+  - pandas=1.5.1
+  - shapely=1.8.5
   - requests
-  - msgpack-python
+  - msgpack-python=1.0.4
   - matplotlib
-  - geopandas
+  - geopandas=0.11.1
+  - pyspark=3.3.1
   - r-itertools
   - r-essentials
-  - pyspark
-  - koalas
