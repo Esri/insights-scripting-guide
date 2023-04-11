@@ -65,13 +65,13 @@ _Note: If the process of creating a conda environment is taking too long, follow
 
 9) Start the Kernel Gateway:
 
-* Run the following command if using __Insights in ArcGIS Enterprise__
+* If you are using __Insights in ArcGIS Enterprise__, run the following command:
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --certfile=./server.crt --keyfile=./server.key --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
     ```
 
-* Run the following command if using __Insights Desktop__
+* If you are using __Insights Desktop__, run the following command:
 
     ```shell
     jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=9999 --KernelGatewayApp.allow_origin='*' --KernelGatewayApp.allow_credentials='*' --KernelGatewayApp.allow_headers='*' --KernelGatewayApp.allow_methods='*' --JupyterWebsocketPersonality.list_kernels=True --KernelGatewayApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager
