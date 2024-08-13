@@ -20,9 +20,9 @@ You can access an archived version of this documentation [here](README_OLD.md).
 
 ## Setup Kernel Gateway 
 
-Insights supports connections to Jupyter's Kernel Gateway, which is an open source web server distributed through ```conda-forge``` and other repository channels.    To setup a Kernel Gateway, with the required dependencies choose one of the following deployment sections.
+Insights supports connections to Jupyter's Kernel Gateway, which is an open source web server distributed through ```conda-forge``` and other repository channels.    To setup a Kernel Gateway, with the required dependencies follow the deployment instructions below.
 
-* [Deploy with Anaconda](#Deploy-with-Anaconda) (_Recommended_)
+* [Deploy with Anaconda](#Deploy-with-Anaconda)
 
  Check out [Deployment Patterns](#Deployment-Patterns) for system planning recommendations.
 
@@ -36,7 +36,7 @@ _Note: If you have already created the conda environment, skip to this section [
 3) Copy ```selfsign.py``` into ```gateway``` folder
 4) Copy the ```.yml``` file into the ```gateway``` folder.
 5) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder
-6) If you are using __2023.1, 2023.2, or 2023.3 versions of the ArcGIS Insights__, run the following commands:
+6) If you are using __2023.1, 2023.2, 2023.3 or above versions of the ArcGIS Insights__, run the following commands:
 
     ```shell
     conda env create -f insights-latest.yml
@@ -94,7 +94,7 @@ In some cases, creating a conda environment using a yml file takes a long time, 
 1) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder.
 2) Creating a new environment and installing dependencies:
 
-* If you are using __2023.1, 2023.2, or 2023.3 versions of the ArcGIS Insights__, run the following commands:
+* If you are using __2023.1, 2023.2, 2023.3 or above versions of the ArcGIS Insights__, run the following commands:
  
     ```shell
     # Creates a new environment named `insights-latest` with Python 3.9.14 installed.
@@ -171,7 +171,7 @@ _Note:_ If you haven't created a conda environment. Refer to the instructions [h
 1) Open _Anaconda's command prompt_ and CD into the ```gateway``` folder.
 2) Activate the conda environment:
 
-* If you are using __2023.1, 2023.2, or 2023.3 versions of the ArcGIS Insights__, run the following command:
+* If you are using __2023.1, 2023.2, 2023.3 or above versions of the ArcGIS Insights__, run the following command:
  
     ```shell
     conda activate insights-latest
