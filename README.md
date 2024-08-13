@@ -23,7 +23,6 @@ You can access an archived version of this documentation [here](README_OLD.md).
 Insights supports connections to Jupyter's Kernel Gateway, which is an open source web server distributed through ```conda-forge``` and other repository channels.    To setup a Kernel Gateway, with the required dependencies choose one of the following deployment sections.
 
 * [Deploy with Anaconda](#Deploy-with-Anaconda) (_Recommended_)
-* [Deploy with Docker](#Deploy-with-Docker)
 
  Check out [Deployment Patterns](#Deployment-Patterns) for system planning recommendations.
 
@@ -87,29 +86,6 @@ _Note: If the process of creating a conda environment is taking too long, follow
 
 _Note:_ If you would like to access your data (.csv,.xls, etc.,) in the scripting environment, create a ```data``` folder within ```gateway``` folder and put your files in it. Then, activate your conda environment after CD'ng into the ```data``` folder and run the appropriate gateway command to start the gateway.
 
-### Deploy with Docker
-
-1) Install [Docker](https://www.docker.com/products/docker-desktop)
-2) Create a folder named ```gateway```
-3) Copy ```selfsign.py``` and ```Dockerfile``` into ```gateway``` folder
-4) Run ```selfsign.py``` to create certificates in the ```gateway``` folder
-
-    ```shell
-    python selfsign.py
-    ```
-
-5) Create a ```data``` folder within ```gateway``` and put your data files there
-6) Run the following command to create the Kernel Gateway Docker image
-
-    ```shell
-    docker build -t insights-gateway .
-    ```
-
-7) Start the Kernel Gateway
-
-    ```shell
-    docker run -p 9999:9999 insights-gateway
-    ```
 
 ## Alternative method to create a conda environment
 
