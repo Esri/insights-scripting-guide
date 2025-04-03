@@ -1,3 +1,6 @@
+# DEPRECATED  
+This repository has reached the end of its journey. It is now officially deprecated and will no longer be maintained. Thank you to all the users. Farewell, and onward to new endeavors. Read the announcement [here](https://support.esri.com/en-us/knowledge-base/deprecation-arcgis-insights-000034240)
+
 # Insights Scripting Guide
 
 This guide offers a reference for creating custom features in ArcGIS Insights using Python and R.  It is the definitive guide for Insights scripting topics and a resource for implementing Jupyter's Kernel Gateway.
